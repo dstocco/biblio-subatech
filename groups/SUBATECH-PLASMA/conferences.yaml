@@ -1,0 +1,1697 @@
+---
+# 2008
+- conference: "1st International Workshop on Multiple Partonic Interactions at the LHC: MPI@LHC08"
+  url: https://www.pg.infn.it/mpi08/
+  start: "2008-10-27"
+  end: "2008-10-31"
+  venue: Perugia, Italie
+  contributions:
+    - type: Talk
+      invited: No
+      title: "Jet reconstruction in heavy ion collisions: emphasis on underlying event background subtraction"
+      firstname: Magali
+      lastname: Estienne
+
+- conference: Physics at LHC
+  url: http://marjan.fesb.hr/physicslhc/
+  start: "2008-09-29"
+  end: "2008-10-04"
+  venue: Split, Croatie
+  contributions:
+    - type: Talk
+      invited: No
+      title: Heavy flavour in ALICE
+      firstname: Philippe
+      lastname: Pillot
+      collaboration: ALICE
+
+- conference: Rencontres QGP-France 2008
+  url: https://llr.in2p3.fr/sites/qgp2008/
+  start: "2008-09-15"
+  end: "2008-09-18"
+  venue: Etretat, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Jets dans STAR
+      firstname: Magali
+      lastname: Estienne
+      collaboration: STAR
+    - type: Talk
+      invited: No
+      title: Mesure du charme en single Muons dans ALICE
+      firstname: Nicolas
+      lastname: Lebris
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: "Processus durs dans les collisions pp au LHC avec ALICE : Production de photons et jets"
+      firstname: Raphaelle
+      lastname: Ichou
+    - type: Talk
+      invited: No
+      title: Acceptance et efficacité de detection des pions neutres avec PHOS
+      firstname: Lamia
+      lastname: Benhabib
+      collaboration: ALICE
+    - type: Talk
+      invited: Yes
+      title: Etat Général d'ALICE
+      firstname: Gines
+      lastname: Martinez
+      collaboration: ALICE
+
+- conference: "Hot Quarks 2008: Workshop for young scientists on the physics of ultra relativistic nucleus-nucleus collisions"
+  url: https://hq2008.bnl.gov
+  start: "2008-08-18"
+  end: "2008-08-23"
+  venue: Aspen Lodge, Colorado, USA
+  contributions:
+    - type: Talk
+      invited: No
+      title: "ALICE-PHOS: Acceptance and efficiency correction factors p- p ---&gt; pi0 + X at 10-TeV"
+      firstname: Lamia
+      lastname: Benhabib
+      collaboration: ALICE
+
+- conference: Hard Probes 2008
+  url: http://www-fp.usc.es/hp2008/HP2008.html
+  start: "2008-06-08"
+  end: "2008-06-14"
+  venue: Isla de la Toja, Spain
+  contributions:
+    - type: Talk
+      invited: No
+      title: Consequence of Lambda_c/D enhancement effect on the non-photonic electron nuclear modification factor in central heavy ioin collisions ar RHIC energy
+      firstname: Gines
+      lastname: Martinez
+
+- conference: Journées de la division Physique Nuclaire de la Société Française de Physique
+  url: https://indico.in2p3.fr/conferenceDisplay.py?ovw=True&amp;confId=647
+  start: "2008-05-13"
+  end: "2008-05-14"
+  venue: Nantes, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Le charme ouvert dans STAR, avec ou sans Heavy Flavor Tracker ?
+      firstname: Alexandre
+      lastname: Shabetai
+    - type: Talk
+      invited: Yes
+      title: Evolution des sondes dures pour la physique des ions lourds du RHIC au LHC
+      firstname: Marie
+      lastname: Germain
+
+- conference: International Workshop on LHC Heavy Ion Physics at LHC
+  url: https://indico.cern.ch/event/33846/
+  start: "2008-05-21"
+  end: "2008-05-24"
+  venue: Wuhan, Chine
+  contributions:
+    - type: Talk
+      invited: No
+      title: Physics Perspectives with ALICE EMCAL
+      firstname: Marie
+      lastname: Germain
+      collaboration: ALICE
+
+- conference: Séminaire au Laboratoire SUBATECH
+  url:
+  start: "2008-05-14"
+  end: "2008-05-14"
+  venue: Nantes, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Le futur du RHIC sera t'il charmant ?
+      firstname: Alexandre
+      lastname: Shabetai
+
+- conference: Ecole des Houches
+  url: http://ipht.cea.fr/Pisp/francois.gelis/Workshops/Houches2008/
+  start: "2008-03-25"
+  end: "2008-03-25"
+  venue: Les Houches, France
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Jet reconstruction performance in ALICE
+      firstname: Magali
+      lastname: Estienne
+
+- conference: Quark Matter 2008
+  url: http://qm2008.bnl.gov/
+  start: "2008-02-04"
+  end: "2008-02-10"
+  venue: Jaipur, India
+  contributions:
+    - type: Talk
+      invited: No
+      title: A measurement of the open charm cross-section in sqrt_sNN = 200 GeV Cu+Cu collisions at STAR experiment at RHIC
+      firstname: Alexandre
+      lastname: Shabetai
+      collaboration: STAR
+
+- conference: "Workshop on Parton fragmentation processes: in the vacuum and in the medium"
+  url: http://indico.cern.ch/conferenceDisplay.py?confId=18684
+  start: "2008-02-25"
+  end: "2008-02-29"
+  venue: Trento, Italie
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Jet reconstruction performance in the ALICE experiment
+      firstname: Magali
+      lastname: Estienne
+
+# 2009
+- conference: Rencontres QGP-France 2009
+  url: http://polywww.in2p3.fr/actualites/congres/qgp2009/
+  start: "2009-09-15"
+  end: "2009-09-17"
+  venue: Etretat, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Bilan sur le calorimètre électromagnétique d'Alice EMCal
+      firstname: Magali
+      lastname: Estienne
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: Les améliorations dans ALICE"
+      firstname: Gines
+      lastname: Martinez
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: Quarkonia and heavy flavours with ALICE
+      firstname: Diego
+      lastname: Stocco
+      collaboration: ALICE
+
+- conference: "EDS09: 13th International Conference on Elastic and Diffractive Scattering"
+  url: https://indico.cern.ch/conferenceDisplay.py?confId=41547
+  start: "2009-06-29"
+  end: "2009-07-03"
+  venue: Geneva, Switzerland
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: QCD heavy ions
+      firstname: Gines
+      lastname: Martinez
+
+- conference: Workshop on the ALICE Muon Spectrometer Project and Related Physics
+  url: https://indico.cern.ch/conferenceDisplay.py?confId=57157
+  start: "2009-09-08"
+  end: "2009-09-10"
+  venue: Aussois, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: News about QA (ESD)
+      firstname: Philippe
+      lastname: Pillot
+    - type: Talk
+      invited: No
+      title: Reconstruction of cosmic tracks
+      firstname: Philippe
+      lastname: Pillot
+    - type: Talk
+      invited: No
+      title: News about reconstruction
+      firstname: Philippe
+      lastname: Pillot
+
+- conference: "CIPANP 2009: Tenth Conference on the Intersections of Particle and Nuclear Physics"
+  url: http://groups.physics.umn.edu/cipanp2009/
+  start: "2009-05-25"
+  end: "2009-05-31"
+  venue: San Diego, California, USA
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: "Open and hidden heavy flavors: perspectives at the LHC"
+      firstname: Diego
+      lastname: Stocco
+    - type: Talk
+      invited: No
+      title: 'Non Photonic e-D**0 correlations in p+p and Au+Au collisions at $\sqrt{s_{NN}}$ = 200-GeV'
+      firstname: Artemios
+      lastname: Geromitsos
+      collaboration: STAR
+
+- conference: ALICE EMCal Offline Meeting
+  url: https://agenda.infn.it/event/1389/
+  start: "2009-05-19"
+  end: "2009-05-21"
+  venue: Frascati, Italie
+  contributions:
+    - type: Talk
+      invited: No
+      title: Jet reconstruction with the EMCal in the ALICE Software
+      firstname: Magali
+      lastname: Estienne
+
+- conference: Workshop on Heavy Quarkonia Production in Heavy Ion Collisions in the European Centre for Theoretical Studies in Nuclear Physics
+  url:
+  start: "2009-05-25"
+  end: "2009-05-29"
+  venue: Trento, Italy
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Quarkonium measurements in ALICE at LHC
+      firstname: Gines
+      lastname: Martinez
+      collaboration: ALICE
+
+- conference: Post QM workshop on Jet and photon physics and High-level Trigger
+  url:
+  start: "2009-04-03"
+  end: "2009-04-03"
+  venue: Berkeley, USA
+  contributions:
+    - type: Talk
+      invited: No
+      title: Some aspects of jet reconstruction in the ALICE experiment
+      firstname: Magali
+      lastname: Estienne
+
+- conference: International Meeting on Fundamental Physics
+  url: https://www.benasque.org/2009imfp/
+  start: "2009-02-09"
+  end: "2009-02-13"
+  venue: Benasque, Spain
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Status of ALICE
+      firstname: Gines
+      lastname: Martinez
+      collaboration: ALICE
+
+# 2010
+- conference: First ReteQuarkonii Workshop
+  url: https://indico.cern.ch/event/93174/
+  start: "2010-10-25"
+  end: "2010-10-28"
+  venue: Nantes, France
+  type: International workshop organized by Subatech
+
+- conference: "Hard Probes 2010: 4th International Conference on Hard and Electromagnetic Probes of High Energy Nuclear Collisions"
+  url: http://www.weizmann.ac.il/conferences/HP2010/
+  start: "2010-10-10"
+  end: "2010-10-15"
+  venue: Eilat, Israel
+  contributions:
+    - type: Talk
+      invited: No
+      title: Measurement of forward-rapidity heavy-flavour muons in proton-proton collisions at sqrt(s) = 7 TeV with ALICE
+      firstname: Diego
+      lastname: Stocco
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: Prompt and isolated photon capabilities of ALICE electromagnetic calorimeters
+      firstname: Raphaelle
+      lastname: Ichou
+      collaboration: ALICE
+
+- conference: Rencontres QGP-France 2010
+  url: http://llr.in2p3.fr/sites/qgp2010/index.php
+  start: "2010-09-20"
+  end: "2010-09-23"
+  venue: Etretat, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Commissioning and performance of ALICE TPC
+      firstname: Adam
+      lastname: Matyja
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: Intrajet radiation studies in pp collisions at LHC
+      firstname: Olga
+      lastname: Driha
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: Charm and Beauty with STAR at RHIC
+      firstname: Witek
+      lastname: Borowski
+      collaboration: STAR
+    - type: Talk
+      invited: No
+      title: Saveurs lourdes dans ALICE_muon
+      firstname: Matthieu
+      lastname: Lenhardt
+      collaboration: ALICE
+
+- conference: "WISH 2010: International Workshop on Interplay between Soft and Hard interactions in particle production at ultra-relativistic energies"
+  url: http://agenda.ct.infn.it/conferenceDisplay.py?confId=295
+  start: "2010-09-08"
+  end: "2010-09-10"
+  venue: Catane, Italie
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Jet fragmentation Monte Carlo study in vacuum and in medium in the ALICE experiment at the LHC
+      firstname: Magali
+      lastname: Estienne
+
+- conference: 22nd Rencontres de Blois
+  url: http://confs.obspm.fr/Blois2010/
+  start: "2010-07-15"
+  end: "2010-07-20"
+  venue: Blois, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Heavy Flavour Measurements with ALICE
+      firstname: Guillaume
+      lastname: Batigne
+      collaboration: ALICE
+
+- conference: Hot Quark 2010
+  url: http://hq2010.bnl.gov/
+  start: "2010-06-21"
+  end: "2010-06-26"
+  venue: La Londe les Maures, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Jet reconstruction and hump-backed plateau extraction with the ALICE experiment at LHC
+      firstname: Swensy
+      lastname: Jangal
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: Studies of isolated prompt photons in proton-proton collisions with ALICE-EMCAL
+      firstname: Raphaelle
+      lastname: Ichou
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: Charm and beauty searches using electron-$D^0$ azimuthal correlations and microvertexing techniques in STAR experiment at RHIC
+      firstname: Witek
+      lastname: Borowski
+      collaboration: STAR
+
+- conference: Light Cone 2010
+  url: http://www.uv.es/lc2010/
+  start: "2010-06-14"
+  end: "2010-06-18"
+  venue: Valencia, Spain
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: ALICE physics programme and first experimental results
+      firstname: Gines
+      lastname: Martinez
+      collaboration: ALICE
+
+- conference: Workshop Hard and Electromagnetic Processes in Quark Matter
+  url: http://aliceinfo.ihep.su/HEPQM2010/
+  start: "2010-06-16"
+  end: "2010-06-17"
+  venue: Protvino, Russie
+  contributions:
+    - type: Talk
+      invited: No
+      title: Jet production and intrajet radiation study in p&minus;p collisions at sqrt(s) = 7 TeV
+      firstname: Magali
+      lastname: Estienne
+
+- conference: Meeting on Excited QCD
+  url: http://th.physik.uni-frankfurt.de/~excitedqcd/2010.html
+  start: "2010-01-31"
+  end: "2010-02-06"
+  venue: Poprad, Slovakia
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Selected highlights from the STAR experiment at RHIC
+      firstname: Sonia
+      lastname: Kabana
+      collaboration: STAR
+
+# 2011
+- conference: QWG 2011
+  url: http://qwg2011.gsi.de/
+  start: "2011-10-03"
+  end: "2011-10-07"
+  venue: GSI Darmstadt, Germany
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Quarkonium production measurement with the ALICE detector at the LHC
+      firstname: Gines
+      lastname: Martinez
+      collaboration: ALICE
+
+- conference: École Joliot Curie 2011
+  url: http://ejc2011.sciencesconf.org/
+  start: "2011-09-12"
+  end: "2011-09-17"
+  venue: La Colle sur Loup, France
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Advances in Quark Gluon Plasma
+      firstname: Gines
+      lastname: Martinez
+
+- conference: International Europhysics Conference on High Energy Physics
+  url: http://eps-hep2011.eu/
+  start: "2011-07-21"
+  end: "2011-07-27"
+  venue: Grenoble, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Heavy flavour measurements in Pb-Pb collisions at sqrt(sNN)=2.76 TeV with the ALICE experiment
+      firstname: Diego
+      lastname: Stocco
+
+- conference: 486th WE-Heraeus-Seminar Characterization of the Quark Gluon Plasma
+  url: http://we-hereaus.physi.uni-heidelberg.de/
+  start: "2011-07-11"
+  end: "2011-07-15"
+  venue: Physikzentrum Bad Honnef, Germany
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Quarkonium production measurement with the ALICE detector at the LHC
+      firstname: Gines
+      lastname: Martinez
+      collaboration: ALICE
+
+- conference: High pt Probes and High-Density QCD at the LHC
+  url: http://llr.in2p3.fr/sites/hphd2011/
+  start: "2011-05-30"
+  end: "2011-06-01"
+  venue: Paris, France
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Photons in ALICE
+      firstname: Olga
+      lastname: Driha
+
+- conference: Quark Matter 2011
+  url: http://qm2011.in2p3.fr/node/12
+  start: "2011-05-23"
+  end: "2011-05-28"
+  venue: Annecy, France
+  contributions:
+    - type: Poster
+      title: Study of the muon tracking efficiency in the ALICE muon forward spectrometer for Pb-Pb collisions at 2.76 TeV
+      firstname: Antoine
+      lastname: Lardeux
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: J/psi production at forward rapidity in Pb-Pb collisions at sqrt(sNN) = 2.76 TeV, measured with the ALICE detector
+      firstname: Philippe
+      lastname: Pillot
+      collaboration: ALICE
+    - type: Talk
+      invited: Yes
+      title: Quarkonium production measurement with the ALICE detector at the LHC
+      firstname: Gines
+      lastname: Martinez
+      collaboration: ALICE
+
+- conference: International Workshop on First Physics with the ALICE muon spectrometer
+  url:
+  start: "2011-02-01"
+  end: "2011-02-04"
+  venue: Kolkatta, India
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Heavy Flavours in ALICE
+      firstname: Gines
+      lastname: Martinez
+      collaboration: ALICE
+
+- conference: Cracow Epiphany Conference On the First Year of the LHC
+  url: http://cdsweb.cern.ch/record/1322669
+  start: "2011-01-10"
+  end: "2011-01-12"
+  venue: Cracow, Poland
+  contributions:
+    - type: Talk
+      invited: No
+      title: Inclusive production of neutral mesons in ALICE
+      firstname: Adam
+      lastname: Matyja
+
+# 2012
+- conference: Journées Jeunes Chercheurs 2012
+  url: http://jjc2012.free.fr/
+  start: "2012-12-02"
+  end: "2012-12-08"
+  venue: Munster, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Etude de la production de J/psi dans les collisions PbPb avec l'expérience ALICE
+      firstname: Antoine
+      lastname: Lardeux
+
+- conference: LHC on the March
+  url: https://indico.cern.ch/event/202467/
+  start: "2012-11-20"
+  end: "2012-11-22"
+  venue: Protvino, Russia
+  contributions:
+    - type: Talk
+      invited: No
+      title: Review of recent results on jet physics in Heavy Ion from LHC
+      firstname: Alexandre
+      lastname: Shabetai
+
+- conference: International workshop on heavy quark production in heavy-ion collisions
+  url: https://indico.cern.ch/conferenceDisplay.py?confId=182856
+  start: "2012-11-14"
+  end: "2012-11-17"
+  venue: Utrecht, Netherlands
+  contributions:
+    - type: Talk
+      invited: No
+      title: Measurement of heavy-flavour decay muon production at forward rapidity in Pb-Pb collisions at sqrt(sNN) = 2.76 TeV with ALICE
+      firstname: Philippe
+      lastname: Pillot
+      collaboration: ALICE
+
+- conference: Hot Quarks 2012
+  url: http://hq2012.bnl.gov/
+  start: "2012-10-14"
+  end: "2012-10-20"
+  venue: Copamarina, Porto-Rico
+  contributions:
+    - type: Talk
+      invited: No
+      title: Direct photons measurement with the ALICE Electromagnetic Calorimeter (EMCal) in p-p collisions at the LHC
+      firstname: Alexis
+      lastname: Mas
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: J/psi production in Pb-Pb collisions at sqrt(s_NN)=2.76 TeV in the ALICE experiment
+      firstname: Antoine
+      lastname: Lardeux
+      collaboration: ALICE
+
+- conference: Rencontres QGP-France 2012
+  url: http://llr.in2p3.fr/sites/qgp2012/
+  start: "2012-09-25"
+  end: "2012-09-28"
+  venue: Etretat, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Jet fragmentation measurement in pp at 7 TeV with ALICE detector
+      firstname: Anaïs
+      lastname: Bergognon
+    - type: Talk
+      invited: No
+      title: Isolated photon measurement in pp at 7 TeV with EMCal, the ALICE electromagnetic calorimeter
+      firstname: Alexis
+      lastname: Mas
+    - type: Talk
+      invited: No
+      title: J/&Psi; Raa as a function of pT and &Psi;&rsquol production in ALICE
+      firstname: Antoine
+      lastname: Lardeux
+    - type: Talk
+      invited: No
+      title: Revue des résultats récents sur la physique des jets
+      firstname: Alexandre
+      lastname: Shabetai
+    - type: Talk
+      invited: No
+      title: Mesure quarkonia avec les upgrades ALICE
+      firstname: Laure
+      lastname: Massacrier
+      collaboration: ALICE
+
+- conference: QCD 2012
+  url: http://www.lpta.univ-montp2.fr/users/qcd/qcd2012/qcd12/Welcome.html
+  start: "2012-07-02"
+  end: "2012-07-06"
+  venue: Montpellier, France
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Overview of ALICE results at LHC
+      firstname: Gines
+      lastname: Martinez
+      collaboration: ALICE
+
+- conference: "Hard Probes 2012: 5th International Conference on Hard and Electromagnetic Probes of High Energy Nuclear Collisions"
+  url: http://www.ca.infn.it/hp12/index.html
+  start: "2012-05-27"
+  end: "2012-06-01"
+  venue: Cagliari, Italy
+  contributions:
+    - type: Talk
+      invited: No
+      title: J/psi elliptic flow measurement in Pb-Pb collisions at forward rapidity in the ALICE experiment
+      firstname: Laure
+      lastname: Massacrier
+    - type: Talk
+      invited: No
+      title: Measurement of heavy-flavour decay muon production at forward rapidity in Pb-Pb collisions at $\sqrt{s_{NN}}$ = 2.76 TeV with the ALICE experiment
+      firstname: Diego
+      lastname: Stocco
+      collaboration: ALICE
+
+- conference: Séminaire au laboratoire SINAP
+  url: http://english.sinap.cas.cn/
+  start: "2012-05-21"
+  end: "2012-05-21"
+  venue: Shanghai, Chine
+  contributions:
+    - type: Invited Speaker (by Prof. Yugang MA)
+      title: The physics of the heavy ion collisions at ultra relativistic energies
+      firstname: Gines
+      lastname: Martinez
+
+- conference: International MUON Workshop
+  url: http://indico.tlabs.ac.za/conferenceDisplay.py?confId=21
+  start: "2012-04-30"
+  end: "2012-05-04"
+  venue: Cape Town, South Africa
+  contributions:
+    - type: Talk
+      invited: No
+      title: Status of J/psi RAA analysis
+      firstname: Philippe
+      lastname: Pillot
+    - type: Talk
+      invited: No
+      title: MUON tracking performances
+      firstname: Philippe
+      lastname: Pillot
+
+- conference: Journées de prospectives IN2P3-IRFU
+  url: http://journeesprospective-in2p3-irfu.in2p3.fr/
+  start: "2012-04-02"
+  end: "2012-04-05"
+  venue: Giens, France
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Les photons, jets, hadrons charmés et beaux
+      firstname: Magali
+      lastname: Estienne
+
+- conference: 5th Workshop du laboratoire franco-chinois de physique de particules 2012
+  url: https://indico.in2p3.fr/conferenceDisplay.py?confId=6153
+  start: "2012-03-21"
+  end: "2012-03-24"
+  venue: IRFU, Saclay, France
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: The physics of the heavy ion collisions at ultra relativistic energies
+      firstname: Gines
+      lastname: Martinez
+
+- conference: High pT physics at LHC Frankfurt 2012
+  url: https://indico.cern.ch/conferenceDisplay.py?confId=180669
+  start: "2012-03-26"
+  end: "2012-03-29"
+  venue: Hanau, Germany
+  contributions:
+    - type: Talk
+      invited: No
+      title: Jet Reconstruction with the ALICE electromagnetic calorimeter, EMCAL
+      firstname: Alexandre
+      lastname: Shabetai
+      collaboration: ALICE
+
+# 2013
+- conference: International workshop SaporeGravis
+  url: https://indico.cern.ch/event/247609/
+  start: "2013-12-02"
+  end: "2013-12-05"
+  venue: Nantes, France
+  type: International Workshop organized by Subatech
+  contributions:
+    - type: Talk
+      invited: No
+      title: Open heavy flavour production and flow at RHIC
+      firstname: Sonia
+      lastname: Kabana
+
+- conference: Seminar in iThemba Labs
+  url: http://www.tlabs.ac.za/
+  start: "2013-11-06"
+  end: "2013-11-06"
+  venue: Cape-Town, South Africa
+  contributions:
+    - type: Talk
+      invited: No
+      title: The hadronic matter and heavy ion collisions at relativistic energies
+      firstname: Gines
+      lastname: Martinez
+
+- conference: Hard Probes 2013
+  url: http://www.phy.uct.ac.za/hp2013/
+  start: "2013-11-04"
+  end: "2013-11-08"
+  venue: Stellenbosch, South Africa
+  contributions:
+    - type: Talk
+      invited: No
+      title: Nuclear Modification Factor and Elliptic Flow of Muons from Heavy-Flavour Hadron Decays in Pb-Pb Collisions at sqrt(s_NN)=2.76 TeV with ALICE
+      firstname: Gines
+      lastname: Martinez instead of Shuang Li (CCNU-Wuhan and LPC-Clermont) that was not able to attend the conference due to a visa problem
+
+- conference: ALICE Physics Week
+  url: http://conf.ccnu.edu.cn/~apw2013wh/
+  start: "2013-10-10"
+  end: "2013-10-14"
+  venue: Wuhan, China
+  contributions:
+    - type: Talk
+      invited: No
+      title: DCAL installation and plans
+      firstname: Mengliang
+      lastname: Wang
+    - type: Talk
+      invited: No
+      title: Jpsi-&gt;mumu low pT excess
+      firstname: Gines
+      lastname: Martinez
+
+- conference: Rencontres QGP-France 2013
+  url: http://llr.in2p3.fr/sites/qgp2013/
+  start: "2013-09-09"
+  end: "2013-09-12"
+  venue: Etretat, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Recent results from RHIC
+      firstname: Sonia
+      lastname: Kabana
+    - type: Talk
+      invited: No
+      title: Muon Forward Tracker
+      firstname: Guillaume
+      lastname: Batigne
+    - type: Talk
+      invited: No
+      title: Performances of the Muon tracking system during pA LHC runs
+      firstname: Javier
+      lastname: Martin Blanco
+    - type: Talk
+      invited: No
+      title: ALICE DCAL geometry implementation and preparation for jet physics
+      firstname: Menglian
+      lastname: Wang
+
+- conference: International Conference on the Initial Stages in High-Energy Nuclear Collisions
+  url: http://igfae.usc.es/is2013/
+  start: "2013-09-08"
+  end: "2013-09-14"
+  venue: Illa da Toxa, Galicia-Spain
+  contributions:
+    - type: Talk
+      invited: No
+      title: J/psi production in p-Pb with ALICE at the LHC
+      firstname: Laurent
+      lastname: Aphecetche
+
+- conference: "SQM 2013: Strangeness in Quark Matter"
+  url: http://www.ep.ph.bham.ac.uk/SQM2013/Home.html
+  start: "2013-07-21"
+  end: "2013-07-27"
+  venue: Birmingham, UK
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Open heavy-flavour results from ALICE
+      firstname: Diego
+      lastname: Stocco
+
+- conference: Congrès Général de la Société Française de Physique
+  url:
+  start: "2013-07-01"
+  end: "2013-07-05"
+  venue: Marseille, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Le plasma de quarks et de gluons et les collisions d&rsquo;ions lourds au LHC
+      firstname: Gines
+      lastname: Martinez
+
+- conference: 8th Alice Physics Week
+  url: http://indico.cern.ch/conferenceDisplay.py?confId=223720
+  start: "2013-05-19"
+  end: "2013-05-24"
+  venue: Padova, Italy
+  contributions:
+    - type: Talk
+      invited: No
+      title: Isolated photons with EMCAL
+      firstname: Marie
+      lastname: Germain
+    - type: Talk
+      invited: No
+      title: Muon Tracking Efficiency studies in pPb and Pbp
+      firstname: Javier
+      lastname: Martin Blanco
+    - type: Talk
+      invited: No
+      title: Low pT J/&Psi; in Pb-Pb collisions
+      firstname: Laure
+      lastname: Massacrier
+
+- conference: International Muon Workshop 2013
+  url: http://alicemuonmeeting2013.to.infn.it/index.html
+  start: "2013-05-06"
+  end: "2013-05-10"
+  venue: Barolo, Italy
+  contributions:
+    - type: Talk
+      invited: No
+      title: DQM to-do list
+      firstname: Diego
+      lastname: Stocco
+    - type: Talk
+      invited: No
+      title: HFM introduction
+      firstname: Diego
+      lastname: Stocco
+
+- conference: "DIS 2013: XXI International Workshop on Deep-Inelastic Scattering and Related Subjects"
+  url: http://dis2013.in2p3.fr/
+  start: "2013-04-22"
+  end: "2013-04-26"
+  venue: Marseille, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Open heavy-flavour production with the ALICE experiment at the LHC
+      firstname: Diego
+      lastname: Stocco
+      collaboration: ALICE
+
+- conference: LHC France 2013
+  url: http://events.lal.in2p3.fr/LHC-France2013/
+  start: "2013-04-02"
+  end: "2013-04-06"
+  venue: Annecy, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Direct photon measurements with ALICE
+      firstname: Alexis
+      lastname: Mas
+      collaboration: ALICE
+    - type: Talk
+      invited: No
+      title: J/psi elliptic flow measurement in Pb-Pb collisions
+      firstname: Laure
+      lastname: Massacrier
+      collaboration: ALICE
+
+- conference: Seminar in the Facultade de Fisica of the Universidade de Santiago de Compostela
+  url: http://www.usc.es/gl/centros/fisica
+  start: "2013-03-05"
+  end: "2013-03-05"
+  venue: Santiago de Compostela, Spain
+  contributions:
+    - type: Seminar
+      title: The hadronic matter and heavy ion collisions at relativistic energies
+      firstname: Gines
+      lastname: Martinez
+
+- conference: Physics at a fixed target experiment (AFTER) using the LHC beams
+  url: http://jjc2012.free.fr/
+  start: "2013-02-03"
+  end: "2013-02-13"
+  venue: Trento, Italy
+  contributions:
+    - type: Talk
+      invited: No
+      title: ALICE upgrades
+      firstname: Laure
+      lastname: Massacrier
+
+- conference: 29th Workshop on Nuclear Dynamics
+  url: http://nsmn1.uh.edu/rbellwied/wwnd2013/Welcome.html
+  start: "2013-02-03"
+  end: "2013-02-10"
+  venue: Squaw Valley, USA
+  contributions:
+    - type: Talk
+      invited: No
+      title: Recent results on jet physics from ALICE at LHC
+      firstname: Alexandre
+      lastname: Shabetai
+
+- conference: Seminar in Subatech
+  url: http://www-subatech.in2p3.fr/
+  start: "2013-01-17"
+  end: "2013-01-17"
+  venue: Nantes, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Summary of the Open Symposium on European Strategy for Particle Physics
+      firstname: Gines
+      lastname: Martinez
+
+# 2014
+- conference: Hot Quarks 2014
+  url: http://hq2014.bnl.gov
+  start: "2014-09-21"
+  end: "2014-09-28"
+  venue: Las Negras, Andalucia, Spain
+  contributions:
+    - type: Talk
+      invited: No
+      title: Inclusive J/psi production in pp, p-Pb and Pb-Pb collisions with ALICE at the LHC
+      firstname: Javier
+      lastname: Martin Blanco
+    - type: Talk
+      invited: No
+      title: Measurement of W-boson production in p-Pb collisions at 5.02 TeV with ALICE at the LHC
+      firstname: Jianhui
+      lastname: Zhu
+
+- conference: Rencontres QGP-France 2014
+  url: http://llr.in2p3.fr/sites/qgp2014/
+  start: "2014-09-15"
+  end: "2014-09-18"
+  venue: Etretat, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Selected highlights from RHIC
+      firstname: Sonia
+      lastname: Kabana
+    - type: Talk
+      invited: No
+      title: Particle rapidity distribution in proton-nucleus collisions using the proton-contributor reference frame
+      firstname: Gines
+      lastname: Martinez
+    - type: Talk
+      invited: No
+      title: Enhancement of J/psi RAA at low pT in Pb-Pb collisions at 2.76 TeV
+      firstname: Laure
+      lastname: Massacrier
+    - type: Talk
+      invited: No
+      title: Progress towards AFTER@LHC
+      firstname: Laure
+      lastname: Massacrier
+    - type: Talk
+      invited: No
+      title: Measurement of isolated-photon jet correlations with ALICE
+      firstname: Denise
+      lastname: Aparecida Moreira de Godoy
+    - type: Talk
+      invited: No
+      title: Isolated photon cross section studies in ALICE experiment
+      firstname: Lucile
+      lastname: Ronflette
+    - type: Talk
+      invited: No
+      title: Measurement of W-boson production in p-Pb collisions at 5.02 TeV with ALICE
+      firstname: Jianhui
+      lastname: Zhu
+
+- conference: 10th International Workshop on High-pT Physics at RHIC/LHC era
+  url: https://indico.cern.ch/event/289665/
+  start: "2014-09-09"
+  end: "2014-09-12"
+  venue: Nantes, France
+  type: International Workshop organised by Subatech
+  contributions:
+    - type: Talk
+      invited: No
+      title: Jet and high pT hadron production overview from STAR
+      firstname: Sonia
+      lastname: Kabana
+    - type: Talk
+      invited: No
+      title: Particle rapidity distribution in proton-nucleus collisions using the proton-contributor reference frame
+      firstname: Gines
+      lastname: Martinez
+    - type: Talk
+      invited: No
+      title: Measurements of heavy-flavour decay leptons with ALICE
+      firstname: Denise
+      lastname: Aparecida Moreira de Godoy
+
+- conference: X Workshop on Particle Correlations and Femtoscopy
+  url: https://indico.cern.ch/event/300974
+  start: "2014-08-25"
+  end: "2014-08-29"
+  venue: Gyöngyös, Hongrie
+  contributions:
+    - type: Talk
+      invited: No
+      title: Correlations and elliptic azimuthal anisotropy of heavy flavours measured with ALICE
+      firstname: Denise
+      lastname: Aparecida Moreira de Godoy
+
+- conference: Frontiers of Fundamental Physics 2014
+  url: http://ffp14.cpt.univ-mrs.fr/
+  start: "2014-07-15"
+  end: "2014-07-18"
+  venue: Marseille, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: ALICE results in p--Pb collisions at the LHC
+      firstname: Diego
+      lastname: Stocco
+
+- conference: Large Hadron Collider Physics (LHCP) Conference
+  url: https://www.bnl.gov/lhcp2014/
+  start: "2014-06-02"
+  end: "2014-06-07"
+  venue: Columbia University, New York City, USA
+  contributions:
+    - type: Talk
+      invited: No
+      title: Probing hot and dense matter production in heavy ion collisions via neutral mesons and photons
+      firstname: Astrid
+      lastname: Morreale
+
+- conference: Quark Matter 2014
+  url: http://qm2014.gsi.de/
+  start: "2014-05-19"
+  end: "2014-05-24"
+  venue: Darmstadt, Germany
+  contributions:
+    - type: Talk
+      invited: No
+      title: J/psi production in p-Pb collisions with ALICE at the LHC
+      firstname: Javier
+      lastname: Martin Blanco
+    - type: Poster
+      title: Low pT J/psi in Pb-Pb collisions at forward rapidity with ALICE at the LHC
+      firstname: Laure
+      lastname: Massacrier
+    - type: Poster
+      title: Feasibility study for the measurement of the elliptic azimuthal anisotropy of electrons from semileptonic decays of beauty hadrons in Pb-Pb collisions at $\sqrt{s_{NN}}$ = 2.76 TeV with ALICE
+      firstname: Denise
+      lastname: Aparecida Moreira de Godoy
+
+- conference: Seminar in Physics Department of University of Liverpool
+  url: https://www.liv.ac.uk/events/event.php?event_id=64850&amp;event_day_id=70165
+  start: "2014-04-23"
+  end: "2014-04-23"
+  venue: Liverpool, UK
+  contributions:
+    - type: Seminar
+      title: The hadronic matter and heavy ion collisions at relativistic energies
+      firstname: Gines
+      lastname: Martinez
+
+- conference: 7th France China Particle Physics Laboratory (FCPPL) Workshop
+  url: https://indico.in2p3.fr/event/8719
+  start: "2014-04-08"
+  end: "2014-04-10"
+  venue: Clermont-Ferrand, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Measurement of W Boson at Forward Rapidity in p-Pb collisions at 5.02 TeV with ALICE
+      firstname: Jianhui
+      lastname: Zhu
+    - type: Talk
+      invited: No
+      title: "Jets in ALICE: from global to differential measurements"
+      firstname: Mengliang
+      lastname: Wang
+    - type: Talk
+      invited: No
+      title: Muon Forward Tracker of ALICE
+      firstname: Gines
+      lastname: Martinez
+
+- conference: ALICE Physics Analysis and Tier-1/2 Workshop
+  url: https://indico.cern.ch/event/274974
+  start: "2014-03-03"
+  end: "2014-03-08"
+  venue: Tsukuba, Japan
+  contributions:
+    - type: Talk
+      title: Isolated Photon Cross-Section in pp at 7 TeV with ALICE
+      firstname: Marie
+      lastname: Germain
+    - type: Talk
+      invited: No
+      title: Jets in ALICE
+      firstname: Alexandre
+      lastname: Shabetai
+
+- conference: Probing the strong interaction at a fixed target experiment with the LHC beams
+  url: https://indico.in2p3.fr/event/8591/
+  start: "2014-01-12"
+  end: "2014-01-17"
+  venue: Les Houches, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Overview of MC tools
+      firstname: Laure
+      lastname: Massacrier
+
+# 2015
+- conference: Rencontres QGP-France 2015
+  url: http://llr.in2p3.fr/sites/qgp2015/index.php
+  start: "2015-10-12"
+  end: "2015-10-15"
+  venue: Etretat, France
+  type: French National Workshop
+  participants: 50
+  contributions:
+    - type: Talk
+      invited: No
+      title: Experimental review of jets, hadrons and photons at high pT
+      firstname: Astrid
+      lastname: Morreale
+    - type: Members of the Organizing Committee
+
+- conference: CORE-U Joint Seminar
+  url: https://indico.cern.ch/event/448477/
+  start: "2015-05-18"
+  end: "2015-05-18"
+  venue: Physics Department, Hiroshima University, Japan
+  contributions:
+    - type: Seminar
+      invited: Yes
+      title: The Quark Gluon Plasma and Heavy Ion Collisions
+      firstname: Gines
+      lastname: Martinez
+
+- conference: Congrès Général de la Société Française de Physique
+  url: https://www.sfpnet.fr/congres-general-de-la-sfp-2015
+  start: "2015-08-24"
+  end: "2015-08-28"
+  venue: Strasbourg, France
+  type: French National Congres
+  participants: 600
+  contributions:
+    - type: Talk
+      invited: No
+      title: Production de quarkonia dans les collisions d'ions lourds au LHC
+      firstname: Gines
+      lastname: Martinez
+
+- conference: 4th International Conference on New Frontiers in Physics
+  url: https://indico.cern.ch/event/344173/
+  start: "2015-08-23"
+  end: "2015-08-30"
+  venue: Crete, Grece
+  type: International Conference
+  participants: 198
+  contributions:
+    - type: Talk
+      invited: No
+      title: Review of recent results on jet physics in Heavy Ion from LHC
+      firstname: Alexandre
+      lastname: Shabetai
+
+- conference: Seminar
+  url:
+  start: "2015-05-18"
+  end: "2015-05-18"
+  venue: Physics Department, Hiroshima University, Japan
+  contributions:
+    - type: Seminar
+      invited: Yes
+      title: "Quark Gluon Plasma with ALICE - looking forward: the MFT"
+      firstname: Guillaume
+      lastname: Batigne
+
+- conference: Joint FKPPL-FJPPL meeting
+  url: http://kds.kek.jp/conferenceDisplay.py?ovw=True&amp;confId=17814
+  start: "2015-05-19"
+  end: "2015-05-19"
+  venue: Okinawa, Japan
+  type: International Workshop
+  participants: 50
+  contributions:
+    - type: Talk
+      invited: No
+      title: The ALICE FKPPL project
+      firstname: Guillaume
+      lastname: Batigne
+
+- conference: 5th ALICE ITS upgrade, MFT and O2 Asian Workshop
+  url: https://indico.cern.ch/event/381564/
+  start: "2015-06-07"
+  end: "2015-06-09"
+  venue: Wuhan, China
+  type: International Workshop
+  participants: 50
+  contributions:
+    - type: Talk
+      invited: No
+      title: MFT Status and Plans
+      firstname: Gines
+      lastname: Martinez
+    - type: Talk
+      invited: No
+      title: MFT Ladder Assembly
+      firstname: Gines
+      lastname: Martinez
+
+- conference: 8th France China Particle Physics Laboratory (FCPPL) Workshop
+  url: http://indico.cern.ch/event/348717/
+  start: "2015-04-08"
+  end: "2015-04-10"
+  venue: Hefei, China
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Measurement of W-boson production in p-Pb collisions with ALICE at the LHC
+      firstname: Jianhui
+      lastname: Zhu
+
+- conference: France-Japan workshop on physics analysis in the ALICE experiment
+  url: https://indico.cern.ch/event/368175/
+  start: "2015-03-14"
+  end: "2015-03-17"
+  venue: Sainte Maxime, France
+  contributions:
+    - type: Talk
+      invited: No
+      title: Measurement of isolated photons
+      firstname: Lucile
+      lastname: Ronflette
+
+- conference: LHCC Detector Upgrade Review
+  url: http://indico.cern.ch/event/376374/
+  start: "2015-03-03"
+  end: "2015-03-03"
+  venue: CERN, Geneva, Switzerland
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Technical Design Report for the ALICE Muon Forward Tracker
+      firstname: Gines
+      lastname: Martinez
+
+- conference: Seminar in SAHA Institute of Nuclear Physics
+  url:
+  start: "2015-02-10"
+  end: "2015-02-10"
+  venue: Kolkata, India
+  contributions:
+    - type: Seminar
+      invited: Yes
+      title: The hadronic matter and heavy ion collisions at relativistic energies and the MFT project of the ALICE experiment at the LHC
+      firstname: Gines
+      lastname: Martinez
+
+- conference: Seminar in Physics Departement of University of Granada
+  url:
+  start: "2015-01-13"
+  end: "2015-01-13"
+  venue: Granada, Spain
+  contributions:
+    - type: Seminar
+      invited: Yes
+      title: The hadronic matter and heavy ion collisions at relativistic energies and the MFT project of the ALICE experiment at the LHC
+      firstname: Gines
+      lastname: Martinez
+
+# 2016
+- conference: Workshop on discovery physics at the LHC, Kruger 2016
+  url: http://kruger2016.tlabs.ac.za/
+  start: "2016-12-05"
+  end: "2016-12-09"
+  venue: Protea Hotel Kruger Gate, Mpumulanga, South Africa
+  type: International Workshop
+  participants: 110
+  contributions:
+    - type: Members of the International Advisory Committee
+      firstname: Gines
+      lastname: Martinez
+
+- conference: Reunion annuelle du "Groupement de Recherche" QCD 2016
+  url: https://indico.in2p3.fr/event/13444/
+  start: "2016-11-08"
+  end: "2016-11-10"
+  venue: Orsay, France
+  type: National Workshop
+  participants: 50
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: J/psi v2 measured by ALICE in Pb-Pb collisions
+      firstname: Audrey
+      lastname: Francisco
+
+- conference: Rencontres QGP France 2016
+  url: http://llr.in2p3.fr/sites/qgp2016/
+  start: "2016-10-10"
+  end: "2016-10-13"
+  venue: Etretat, France
+  type: National Workshop
+  participants: 50
+  contributions:
+    - type: Talk
+      invited: No
+      title: First results for J/psi elliptic flow in PbPb at 5.02 TeV
+      firstname: Audrey
+      lastname: Francisco
+    - type: Talk
+      invited: No
+      title: Overview of charmonium production in pp collisions
+      firstname: Astrid
+      lastname: Morreale
+    - type: Members of the Organising Committee
+
+- conference: 6th ALICE ITS upgrade, MFT and O2 Asian Workshop
+  url: https://indico.cern.ch/event/484521/
+  start: "2016-07-26"
+  end: "2016-07-28"
+  venue: Jakarta, Indonesia
+  type: International Workshop
+  participants: 50
+  contributions:
+    - type: Talk
+      invited: No
+      title: MFT Ladder and Disk Assembly
+      firstname: Stephane
+      lastname: Bouvier
+    - type: Member of the Organising Committee
+
+- conference: 5th International Conference on New Frontiers in Physics
+  url: https://indico.cern.ch/event/442094/
+  start: "2016-07-06"
+  end: "2016-07-14"
+  venue: Kolymbari, Greece
+  type: International Conference
+  participants: 200
+  contributions:
+    - type: Talk
+      invited: No
+      title: Neutral mesons and direct photon measurements with the ALICE experiment
+      firstname: Lucile
+      lastname: Ronflette
+
+- conference: Alice Calo Meeting
+  url: https://indico.cern.ch/event/506125/
+  start: "2016-05-30"
+  end: "2016-06-01"
+  venue: Tokyo, Japan
+  type: International Workshop
+  particpants: 30
+  contributions:
+    - type: Talk
+      invited: No
+      title: Isolated Photons in EMCAL
+      firstname: Marie
+      lastname: Germain
+
+- conference: Workshop of the ALICE Muon Spectrometer
+  url: https://indico.cern.ch/event/505854/
+  start: "2016-05-23"
+  end: "2016-05-27"
+  venue: Pornichet, France
+  type: International Workshop
+  participants: 40
+  contributions:
+    - type: Talk
+      invited: No
+      title: The ALPIDE sensor
+      firstname: Audrey
+      lastname: Francisco
+    - type: Talk
+      invited: No
+      title: "W boson production in pPb: progresses of analysis and status of paper"
+      firstname: Diego
+      lastname: Stocco
+    - type: Local Organising Committee
+
+# 2017
+- conference: Université de Nantes Physics Department Career Day
+  url: http://www.sciences-techniques.univ-nantes.fr
+  start: "2017-11-02"
+  end: "2017-11-02"
+  venue: Nantes, France
+  type: University Career Day
+  participants: 150
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: "A PhD in physics: why not me?"
+      firstname: Erwann
+      lastname: Masson
+
+- conference: Rencontres QGP France 2017
+  url: https://indico.cern.ch/event/639092/
+  start: "2017-10-09"
+  end: "2017-10-12"
+  venue: Etretat, France
+  type: National Conference
+  participants: 44
+  contributions:
+    - type: Talk
+      invited: No
+      title: MID O2
+      firstname: Gabriele Gaetano
+      lastname: Fronzé
+    - type: Organiser
+      firstname: Gines
+      lastname: Martinez
+
+- conference: European Physical Society Conference on High Energy Physics 2017 (EPS-HEP)
+  url: http://eps-hep2017.eu/index.html
+  start: "2017-07-05"
+  end: "2017-07-12"
+  venue: Venice, Italy
+  type: International Conference
+  participants: 969
+  contributions:
+    - type: Talk
+      invited: No
+      title: Jet production in pp and p-Pb collisions with the ALICE experiment at LHC
+      firstname: Alexandre
+      lastname: Shabetai
+
+- conference: 9th ALICE ITS Upgrade, MFT and O2 Asian Workshop
+  url: https://indico.cern.ch/event/623985/
+  start: "2017-06-26"
+  end: "2017-06-27"
+  venue: Pusan, South Korea
+  type: International Workshop
+  participants: 61
+  contributions:
+    - type: Talk
+      invited: No
+      title: MFT Project Status
+      firstname: Gines
+      lastname: Martinez
+
+- conference: The sixth joint workshop of the France Korea (FKPPL) and France Japan (TYL/FJPPL) International Associated Particle Physics Laboratories
+  url: https://indico.lal.in2p3.fr/event/3425/
+  start: "2017-05-10"
+  end: "2017-05-12"
+  venue: Strasbourg, France
+  type: France-Korea-Japan Workshop
+  participants: 100
+  contributions:
+    - type: Talk
+      invited: No
+      title: Project HAD_02
+      firstname: Gines
+      lastname: Martinez
+
+- conference: LHCP 2017
+  url: http://lhcp2017.physics.sjtu.edu.cn/node/29
+  start: "2017-05-15"
+  end: "2017-05-20"
+  venue: Shanghai, China
+  type: International conference
+  participants: 500
+  contributions:
+    - type: Convener of the Performance parallel session
+      firstname: Marie
+      lastname: Germain
+
+- conference: 10th workshop of the France China Particle Physics Laboratory (FCPPL)
+  url: http://indico.ihep.ac.cn/event/6651/
+  start: "2017-03-27"
+  end: "2017-03-30"
+  venue: Beijing, China
+  type: Franco-Chinese Workshop
+  participants: 100
+  contributions:
+    - type: Talk
+      invited: No
+      title: Double-Parton Scattering and Underlying Event measurements in ALICE
+      firstname: Diego
+      lastname: Stocco
+
+- conference: Mont Saint Odile Think Tank
+  url: https://indico.cern.ch/event/533256/
+  start: "2017-02-11"
+  end: "2017-02-13"
+  venue: Loyola University, WoodStock, USA
+  type: International Workshop
+  participants: 50
+  contributions:
+    - type: Member of the think thank for quarkonia
+      firstname: Gines
+      lastname: Martinez
+
+- url: http://qm2017.phy.uic.edu
+  conference: Quark Matter 2017
+  start: "2017-02-06"
+  end: "2017-02-11"
+  venue: Chicago, USA
+  type: International Workshop
+  participants: 700
+  contributions:
+    - type: Poster
+      title: Measurements of jet fragmentation functions and of their moments in pp collisions at 2.76 TeV with the ALICE detector
+      firstname: Alexandre
+      lastname: Shabetai
+    - type: Poster
+      title: J/psi production in pp collisions at sqrt(s) = 5.02 TeV measured at forward rapidity with ALICE at the LHC
+      firstname: Benjamin
+      lastname: Audurier
+
+# 2018
+- conference: QNP18
+  url: https://www-conf.kek.jp/qnp2018/index.html
+  start: "2018-11-13"
+  end: "2018-11-17"
+  venue: Tsukuba, Japan
+  type: International Conference
+  participants: 193
+  contributions:
+    - type: IAC member
+      firstname: Gines
+      lastname: Martinez
+
+- conference: Recontres QGP France 2018
+  url: https://indico.cern.ch/event/706294/
+  start: "2018-07-02"
+  end: "2018-07-05"
+  venue: Etretat, France
+  type: National Conference
+  participants: 50
+  contributions:
+    - type: Organiser
+      firstname: Gines
+      lastname: Martinez
+
+- conference: LHCP
+  url: http://lhcp2018.bo.infn.it/
+  start: "2018-06-04"
+  end: "2018-06-09"
+  venue: Bologna, Italy
+  type: International Conference
+  participants: 425
+  contributions:
+    - type: Convener of the Parallel Section Electroweak
+      firstname: Diego
+      lastname: Stocco
+
+- conference: ALICE Physics Week
+  url: https://indico.cern.ch/event/687851/
+  start: "2018-02-05"
+  end: "2018-02-09"
+  venue: Frascati, Italy
+  type: Collaboration Conference
+  participants: 116
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: Overview of isolated photon and photon-hadron correlation measurements for different collision systems
+      firstname: Erwann
+      lastname: Masson
+      collaboration: ALICE
+
+# 2019
+- conference: 25ème Congrès Général de la Société Française de Physique
+  url: https://indico.in2p3.fr/event/16792/
+  start: "2019-07-08"
+  end: "2019-07-12"
+  venue: Nantes, France
+  type: National conference
+  contributions:
+    - type: Co-organizer
+      firstname: Gines
+      lastname: Martinez
+
+# 2020
+- conference: ALICE week
+  url: https://indico.cern.ch/event/929805/
+  start: "2020-07-06"
+  end: "2020-07-10"
+  venue: CERN, Geneva, Switzerland
+  type: Collaboration meeting
+  contributions:
+    - type: Talk
+      invited: Yes
+      title: "Production of J/psi and dileptons in hadronic collisions from quasireal photons: recent experiment and theory insights and ongoing activities in ALICE"
+      firstname: Ophelie
+      lastname: Bugnon
+      collaboration: ALICE
+
+# 2021
+- conference: Rencontres QGP France 2021
+  url: https://indico.cern.ch/event/887304/
+  start: "2021-07-05"
+  end: "2021-07-08"
+  venue: Etretat, France
+  type: National Conference
+  contributions:
+    - type: Talk
+      invited: No
+      title: "Extracting di-muon pairs produced via two photon scattering in PbPb peripheral collisions at 5.02 TeV in ALICE"
+      firstname: Nicolas
+      lastname: Bizé
+      collaboration: ALICE
+
+# 2022
+- conference: Rencontres QGP France 2022
+  url: https://indico.cern.ch/event/1126979/
+  start: "2022-05-02"
+  end: "2022-05-05"
+  venue: Tours, France
+  type: National Conference
+  contributions:
+    - type: Talk
+      invited: No
+      title: "Run 3 preparation with the MFT and the ALICE Muon spectrometer : from matching performances to charm/beauty separation"
+      firstname: Nicolas
+      lastname: Bizé
+      collaboration: ALICE
+    - type: Organizer
+      firstname: Marie
+      lastname: GERMAIN
+
+- conference: Heavy-ion collisions in the QCD diagram
+  url: https://indico.in2p3.fr/event/26074/
+  start: "2022-06-27"
+  end: "2022-07-08"
+  venue: Nantes, France
+  type: Summer school
+  contributions:
+    - type: Organizer
+      firstname: Maxime
+      lastname: Guilbaud
