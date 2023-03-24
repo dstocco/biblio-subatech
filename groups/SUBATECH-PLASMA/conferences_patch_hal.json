@@ -1,0 +1,289 @@
+{
+  "patches": [
+    {
+      "ids": [
+        "in2p3-02045424",
+        "hal-02634693",
+        "hal-01965319",
+        "hal-01945119"
+      ],
+      "ignored": true
+    },
+    {
+      "ids": [
+        "hal-01553930"
+      ],
+      "publisherLink_s": [
+        "http://qm2015.riken.jp/"
+      ],
+      "participants": 700,
+      "alias": "Quark Matter 2015"
+    },
+    {
+      "ids": [
+        "hal-02110014"
+      ],
+      "participants": 700,
+      "alias": "HEP-EPS 2015"
+    },
+    {
+      "ids": [
+        "hal-01554249"
+      ],
+      "publisherLink_s": [
+        "https://agenda.infn.it/event/5235/"
+      ],
+      "participants": 358
+    },
+    {
+      "ids": [
+        "in2p3-01317960"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/304944/"
+      ],
+      "conferenceStartDate_s": "2015-04-13",
+      "conferenceEndDate_s": "2015-04-17"
+    },
+    {
+      "ids": [
+        "hal-01645270"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/634426/"
+      ],
+      "participants": 257,
+      "alias": "Hard probes 2016"
+    },
+    {
+      "ids": [
+        "hal-01669672"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/442094/"
+      ],
+      "participants": 219
+    },
+    {
+      "ids": [
+        "hal-02152447"
+      ],
+      "participants": 110
+    },
+    {
+      "ids": [
+        "hal-01554539"
+      ],
+      "publisherLink_s": [
+        "http://hq2016.bnl.gov/"
+      ],
+      "participants": 80
+    },
+    {
+      "ids": [
+        "hal-01554580"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/403913/"
+      ],
+      "alias": "SQM 2016"
+    },
+    {
+      "ids": [
+        "hal-01554483"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/436730/overview"
+      ],
+      "alias": "BEACH 2016"
+    },
+    {
+      "ids": [
+        "hal-02302477"
+      ],
+      "publisherLink_s": [
+        "https://www.eps.org/members/group_content_view.asp?group=85199&id=508742"
+      ]
+    },
+    {
+      "ids": [
+        "hal-01914504"
+      ],
+      "publisherLink_s": [
+        "https://agenda.infn.it/event/12289/"
+      ],
+      "participants": 175
+    },
+    {
+      "ids": [
+        "hal-01646029",
+        "hal-01646033"
+      ],
+      "publisherLink_s": [
+        "http://qm2017.phy.uic.edu"
+      ],
+      "participants": 700,
+      "alias": "Quark Matter 2017"
+    },
+    {
+      "ids": [
+        "hal-01833751"
+      ],
+      "publisherLink_s": [
+        "http://pstp2017.kaist.ac.kr/index.php/"
+      ]
+    },
+    {
+      "ids": [
+        "hal-02741105",
+        "hal-02739938",
+        "hal-01730124"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/576735/"
+      ],
+      "participants": 210,
+      "alias": "SQM 2017"
+    },
+    {
+      "ids": [
+        "hal-01937664"
+      ],
+      "publisherLink_s": [
+        "https://hq2018.bnl.gov"
+      ],
+      "participants": 64
+    },
+    {
+      "ids": [
+        "hal-01974840"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/686494/overview"
+      ]
+    },
+    {
+      "ids": [
+        "hal-02152336"
+      ],
+      "participants": 193,
+      "alias": "QNP18"
+    },
+    {
+      "ids": [
+        "hal-02058420"
+      ],
+      "publisherLink_s": [
+        "https://qm2018.infn.it"
+      ],
+      "participants": 855,
+      "alias": "Quark Matter 2018"
+    },
+    {
+      "ids": [
+        "hal-01897258"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/664310/"
+      ],
+      "participants": 50
+    },
+    {
+      "ids": [
+        "hal-02264565"
+      ],
+      "participants": 103,
+      "alias": "QCD@LHC2019"
+    },
+    {
+      "ids": [
+        "hal-02280283",
+        "hal-02280482"
+      ],
+      "participants": 400,
+      "alias": "SFP2019"
+    },
+    {
+      "ids": [
+        "hal-02280272"
+      ],
+      "publisherLink_s": [
+        "https://agenda.infn.it/event/16289/"
+      ],
+      "participants": 98,
+      "alias": "PHOTON 2019"
+    },
+    {
+      "ids": [
+        "hal-02167324"
+      ],
+      "publisherLink_s": [
+        "http://wonp.instec.cu/pages/index.php"
+      ],
+      "conferenceEndDate_s": "2019-04-05"
+    },
+    {
+      "ids": [
+        "hal-02283834"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/794774/"
+      ]
+    },
+    {
+      "ids": [
+        "hal-02291274"
+      ],
+      "publisherLink_s": [
+        "https://www.san.asso.fr/conferen/Plaquette_Conferences_2018-2019.pdf"
+      ]
+    },
+    {
+      "ids": [
+        "hal-02933938",
+        "hal-02899494"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/751767/"
+      ],
+      "participants": 721,
+      "city_s": "Austin (online)",
+      "alias": "Hard Probes 2020",
+      "conferenceStartDate_s": "2020-05-31",
+      "conferenceEndDate_s": "2020-06-05"
+    },
+    {
+      "ids": [
+        "hal-03176036"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/895924/"
+      ],
+      "conferenceStartDate_s": "2020-10-05",
+      "conferenceEndDate_s": "2020-10-08",
+      "city_s": "Tsukuba (online)",
+      "country_s": "jp"
+    },
+    {
+      "ids": [
+        "hal-03176554",
+        "hal-03176057",
+        "hal-03176065"
+      ],
+      "publisherLink_s": [
+        "https://indico.in2p3.fr/event/23628/"
+      ],
+      "conferenceStartDate_s": "2021-03-08",
+      "conferenceEndDate_s": "2021-03-10",
+      "city_s": "Paris (online)"
+    },
+    {
+      "ids": [
+        "hal-04025806"
+      ],
+      "publisherLink_s": [
+        "https://sqm2022.pusan.ac.kr"
+      ]
+    }
+  ]
+}
