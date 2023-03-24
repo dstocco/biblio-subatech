@@ -1,0 +1,7 @@
+# Python
+__pycache__
+# Mac
+.DS_Store
+# Temporary
+*.html
+*.mdx
