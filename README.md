@@ -4,7 +4,7 @@ This repository contains a series of tool to check the bibliography of the Subat
 
 ## check_hal_untagged.py
 
-This script allows to check the contributions in HAL that are in the SUBATECH collection but are not flagged by the subatech groups.
+This script allows to check the contributions in HAL that are in the Subatech collection but are not flagged by the Subatech groups.
 
 ```shell
 python3 check_hal_untagged.py
@@ -20,7 +20,7 @@ This is useful to highlight the contributions that should be tagged for the spec
 
 ## generate_webpage_files.py
 
-This script combines information from HAL and local information in order to generate the list of selected publications and conference contributions of the group for the SUBATECH webpage
+This script combines information from HAL and local information in order to generate the list of selected publications and conference contributions of the group for the Subatech webpage
 
 ```shell
 python3 generate_webpage_files.py
@@ -59,4 +59,12 @@ The fixes or addition of some information for the webpage, can be added in the s
 
 ### Additional theses information
 
-The information of the ongoing theses or of the theses that are not in the HAL archive can be specified in the file: `groups/<group>/theses.yaml`
+The information of the ongoing theses or of the theses that are not in the HAL archive can be specified in the file: `groups/<group>/theses.yaml`.
+
+## show_stats.py
+
+This script shows the number of publications of the selected Subatech group separated by categories and per production year.
+
+```shell
+python3 show_stats.py
+```
