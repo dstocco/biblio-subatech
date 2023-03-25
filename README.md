@@ -68,3 +68,12 @@ This script shows the number of publications of the selected Subatech group sepa
 ```shell
 python3 show_stats.py
 ```
+
+## show_papers_outside_collab.py
+
+This script shows the publications of the selected Subatech group that do not belong to a collaboration.
+This is helpful to highlight either review papers or publications with few authors.
+
+```shell
+python3 show_papers_outside_collab.py
+```
