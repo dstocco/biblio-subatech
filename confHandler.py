@@ -207,7 +207,7 @@ def getEvents(group):
 
     # Merge the events
     mergedEvents = _mergeEvents(
-        sorted(eventList, key=lambda it: it["start"], reverse=True))
+        sorted(eventList, key=lambda it: (it["start"], it["conference"]), reverse=True))
 
     return mergedEvents
 
