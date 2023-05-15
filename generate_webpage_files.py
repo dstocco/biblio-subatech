@@ -307,9 +307,14 @@ def generate_selected_pub(group, fmt, ymin, subawebDir):
     )
 
     txt += formatter.listStart()
+    selForSort = selected
+    for sel in selected:
+        if not sel.get("arxivId_s"):
+            sel["arxivId_s"] = "0"
+
     for entry in sorted(
-        selected,
-        key=lambda sel: (sel["producedDateY_i"], sel.get("arxiveId_s")),
+        selForSort,
+        key=lambda sel: (sel["producedDateY_i"], sel.get("arxivId_s")),
         reverse=True,
     ):
         txt += formatter.listItem(
