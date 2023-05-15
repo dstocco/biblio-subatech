@@ -363,10 +363,10 @@ def generate_theses(group, fmt, subawebDir):
     entries += done
 
     formatter = getFormatter(fmt)
+    txt = ""
 
-    txt = formatter.header("Theses", 1)
     if ongoing:
-        txt += formatter.header("Les thèses en cours / PhD in preparation", 2)
+        txt += formatter.header("En cours / In preparation", 2)
         for entry in ongoing:
             txt += formatter.listItem(
                 "{}, {} {}".format(
@@ -376,7 +376,7 @@ def generate_theses(group, fmt, subawebDir):
                 )
             )
 
-    txt += formatter.header("Les thèses soutenues / PhD defended", 2)
+    txt += formatter.header("Soutenues / Defended", 2)
 
     txt += formatter.listStart()
     for entry in sorted(entries, key=lambda sel: sel["defenseDate_s"], reverse=True):
@@ -400,7 +400,7 @@ def generate_theses(group, fmt, subawebDir):
     txt += formatter.listEnd()
 
     outFilename = getOutFilename(group, fmt, "theses", subawebDir)
-    dumpToFile(outFilename, "Theses", txt, fmt)
+    dumpToFile(outFilename, "Thèses / PhD", txt, fmt)
 
     return 0
 
