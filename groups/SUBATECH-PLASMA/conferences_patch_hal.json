@@ -240,6 +240,14 @@
     },
     {
       "ids": [
+        "hal-02288899"
+      ],
+      "publisherLink_s": [
+        "https://indico.cern.ch/event/802078"
+      ]
+    },
+    {
+      "ids": [
         "hal-02933938",
         "hal-02899494"
       ],
