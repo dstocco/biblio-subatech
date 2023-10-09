@@ -1,122 +1,161 @@
 #!/usr/bin/env python3
+
+"""Script to generate the subatech-next webpage files"""
+
 import os
 import sys
 import argparse
-import yaml
 import datetime
+import yaml
 import hal
 import confHandler
 
 # Formatters
 
 
-class mdFormatter:
+class MDFormatter:
+    """Class to format output in Markdown"""
+
     def header(self, name, level):
+        """Header"""
         return "#" * level + " " + str(name) + "\n\n"
 
-    def listStart(self, level=1):
+    def list_start(self, level=1):
+        """Start list"""
         out = ""
         if level > 1:
             out += "\n"
         return out
 
-    def listEnd(self, level=1):
+    # pylint: disable-next=unused-argument
+    def list_end(self, level=1):
+        """End list"""
         return "\n"
 
-    def listItem(self, name, level=1):
+    def list_item(self, name, level=1):
+        """List item"""
         return "  " * (level - 1) + "* " + name + "\n"
 
-    def eventListStart(self):
+    def event_list_start(self):
+        """Start event list"""
         return "\n"
 
-    def eventListEnd(self):
+    def event_list_end(self):
+        """End event list"""
         return "\n"
 
-    def eventStart(self):
+    def event_start(self):
+        """Start event"""
         return "* "
 
-    def eventEnd(self):
+    def event_end(self):
+        """End event"""
         return "\n"
 
-    def contribListStart(self):
+    def contrib_list_start(self):
+        """Start contribution list"""
         return "\n"
 
-    def contribListEnd(self):
+    def contrib_list_end(self):
+        """End contribution list"""
         return ""
 
-    def contribStart(self):
+    def contrib_start(self):
+        """Start contribution"""
         return "  * "
 
-    def contribEnd(self):
+    def contrib_end(self):
+        """End contribution"""
         return "\n"
 
-    def it(self, name):
+    def text_it(self, name):
+        """Italics"""
         # This is the typical format for the title
-        # Latex is correctly displayed, but when text representation is used instead of latex some characters have to be properly escaped
+        # Latex is correctly displayed, but when text representation is used instead of latex
+        # some characters have to be properly escaped
         name = name.replace("s_(NN)", "sNN")
         return "_" + name + "_"
 
     def link(self, ref, name):
+        """Format link"""
         return "[" + name + "](" + ref + ")"
 
 
-class htmlFormatter:
-    def header(self, name, level):
-        return "\n<h{}>{}</h{}>\n".format(level, name, level)
+class HTMLFormatter:
+    """Class to format output in HTML"""
 
-    def listStart(self, level=1):
+    def header(self, name, level):
+        """Header"""
+        return f"\n<h{level}>{name}</h{level}>\n"
+
+    def list_start(self, level=1):
+        """Start list"""
         style = "circle"
         if level > 1:
             style = "disc"
         indent = "  " * (level - 1)
-        return "\n" + indent + '<ul style="list-style-type: {};">\n'.format(style)
+        return f'\n{indent}<ul style="list-style-type: {style};">\n'
 
-    def listEnd(self, level=1):
+    def list_end(self, level=1):
+        """End list"""
         return "  " * (level - 1) + "</ul>\n"
 
-    def listItem(self, name, level=1):
+    def list_item(self, name, level=1):
+        """List item"""
         return "  " * level + "<li>" + name + "</li>\n"
 
-    def eventListStart(self):
+    def event_list_start(self):
+        """Start event list"""
         return '<ul style="list-style-type: circle;">\n'
 
-    def eventListEnd(self):
+    def event_list_end(self):
+        """End event list"""
         return "</ul>\n"
 
-    def eventStart(self):
+    def event_start(self):
+        """Start event"""
         return "  <li>"
 
-    def eventEnd(self):
+    def event_end(self):
+        """End event"""
         return "  </li>\n"
 
-    def contribListStart(self):
+    def contrib_list_start(self):
+        """Start contribution list"""
         return '\n    <ul style="list-style-type: disc;">\n'
 
-    def contribListEnd(self):
+    def contrib_list_end(self):
+        """End contribution list"""
         return "    </ul>\n"
 
-    def contribStart(self):
+    def contrib_start(self):
+        """Start contribution"""
         return "      <li>"
 
-    def contribEnd(self):
+    def contrib_end(self):
+        """End contribution"""
         return "</li>\n"
 
-    def it(self, name):
+    def text_it(self, name):
+        """Italics"""
         return "<em>" + name + "</em>"
 
     def link(self, ref, name):
+        """Format link"""
         return '<a href="' + ref + '">' + name + "</a>"
 
 
-def getFormatter(fmt):
+def get_formatter(fmt):
+    """Return the formatter"""
     if fmt == "mdx":
-        return mdFormatter()
-    return htmlFormatter()
+        return MDFormatter()
+    return HTMLFormatter()
 
 
-def getPageHeader(title):
+def get_page_header(title):
+    """Returns the page header"""
     out = "---\n"
-    out += 'title: "{}"\n'.format(title)
+    out += f'title: "{title}"\n'
     out += 'date: "2011-12-16 14:01:22 +0000 UTC"\n'
     out += 'lastmod: "{} +0000 UTC"\n'.format(
         datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
@@ -125,79 +164,85 @@ def getPageHeader(title):
     return out
 
 
-def getOutFilename(group, fmt, name, subawebDir):
+def get_out_filename(group, fmt, name, subaweb_dir):
+    """Returns the output filename"""
     grp = group.lower().replace("subatech-", "")
     if fmt == "html":
-        return "{}_{}.html".format(grp, name)
+        return f"{grp}_{name}.html"
 
-    outDir = os.path.join(subawebDir, "content/recherche/equipes", grp)
+    out_dir = os.path.join(subaweb_dir, "content/recherche/equipes", grp)
     if name == "conferences":
         name = "presentations-de-conferences-seminaires-et-posters"
     name += ".xx.mdx"
-    outFilename = os.path.join(outDir, name)
-    if os.path.exists(outFilename):
-        return outFilename
+    out_filename = os.path.join(out_dir, name)
+    if os.path.exists(out_filename):
+        return out_filename
     return name
 
 
-def generateTestPage(inFilename, outFilename):
-    with open(inFilename) as inFile:
-        with open(outFilename, "w") as outFile:
-            print("Writing " + outFilename)
-            outFile.write("<!DOCTYPE html>\n")
-            outFile.write("<html>\n")
-            outFile.write("<head>\n")
-            outFile.write(
+def generate_test_page(in_filename, out_filename):
+    """Generate a test page"""
+    with open(in_filename, encoding="utf-8") as in_file:
+        with open(out_filename, "w", encoding="utf-8") as out_file:
+            print("Writing " + out_filename)
+            out_file.write("<!DOCTYPE html>\n")
+            out_file.write("<html>\n")
+            out_file.write("<head>\n")
+            out_file.write(
                 '  <meta http-equiv="content-type" content="text/html; charset=utf-8;" />\n'
             )
-            outFile.write("</head>\n")
-            outFile.write("<body>\n")
-            outFile.write(inFile.read())
-            outFile.write("</body>\n")
-            outFile.write("</html>\n")
+            out_file.write("</head>\n")
+            out_file.write("<body>\n")
+            out_file.write(in_file.read())
+            out_file.write("</body>\n")
+            out_file.write("</html>\n")
 
 
-def readMdx(filename):
+def read_mdx(filename):
+    """Read markdown for javascript"""
     if not os.path.exists(filename):
         return [None, None]
-    with open(filename) as inFile:
-        fcontent = inFile.readlines()
+    with open(filename, encoding="utf-8") as in_file:
+        fcontent = in_file.readlines()
         return ["".join(fcontent[0:6]), "".join(fcontent[6:])]
 
 
-def dumpToFile(outFilename, title, txt, fmt):
+def dump_to_file(out_filename, title, txt, fmt):
+    """Dump content to file"""
     [header, body] = [None, None]
     if fmt == "mdx":
-        [header, body] = readMdx(outFilename)
+        [header, body] = read_mdx(out_filename)
         if body:
             if body == txt:
-                print("No changes in " + outFilename)
+                print("No changes in " + out_filename)
                 return
         if not header:
-            header = getPageHeader(title)
-    with open(outFilename, "w") as outFile:
-        print("Writing " + outFilename)
+            header = get_page_header(title)
+    with open(out_filename, "w", encoding="utf-8") as out_file:
+        print("Writing " + out_filename)
         if header:
-            outFile.write(header)
-        outFile.write(txt)
+            out_file.write(header)
+        out_file.write(txt)
 
     if fmt == "html":
-        generateTestPage(outFilename, "test_" + outFilename)
+        generate_test_page(out_filename, "test_" + out_filename)
 
 
 # Publications
 
 
 def read_tagged_pub(group):
-    scriptDir = os.path.dirname(os.path.realpath(__file__))
+    """Read file with selected publications"""
+    script_dir = os.path.dirname(os.path.realpath(__file__))
     filename = os.path.join(
-        scriptDir, "groups/{}/selected_publications.yaml".format(group)
+        script_dir, "groups/{}/selected_publications.yaml".format(group)
     )
-    with open(filename) as inFile:
-        return yaml.safe_load(inFile.read())
+    with open(filename, encoding="utf-8") as in_file:
+        return yaml.safe_load(in_file.read())
 
 
-def getSelected(entries, group):
+def get_selected(entries, group):
+    """Returns the selected publications"""
     tags = read_tagged_pub(group)
     filtered = []
     for entry in entries:
@@ -206,22 +251,24 @@ def getSelected(entries, group):
             if val and val in tags:
                 sel = entry
                 sel["selected"] = tags[val]
-                newtitle = tags.get(val + "_title")
-                if newtitle:
-                    sel["title_s"][0] = newtitle
+                new_title = tags.get(val + "_title")
+                if new_title:
+                    sel["title_s"][0] = new_title
                 filtered.append(sel)
                 break
     return filtered
 
 
-def getAuthor(entry):
+def get_author(entry):
+    """Gets the author"""
     authors = entry["authFullName_s"]
     if len(authors) > 5:
         return authors[0] + " et al."
     return " and ".join(authors)
 
 
-def getJournal(entry, formatter):
+def get_journal(entry, formatter):
+    """Returns the journal type"""
     out = ""
     journal = entry.get("journalTitle_s")
     if journal:
@@ -243,26 +290,28 @@ def getJournal(entry, formatter):
             out += " "
         out += (
             "["
-            + formatter.link("https://arxiv.org/abs/" + arxiv, "arXiv:{}".format(arxiv))
+            + formatter.link("https://arxiv.org/abs/" + arxiv, f"arXiv:{arxiv}")
             + "]"
         )
     return out
 
 
-def toDate(dateStr):
-    return datetime.datetime.strptime(dateStr, "%Y-%m-%d").date()
+def to_date(date_str):
+    """Convert string to date object"""
+    return datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
 
 
-def generate_selected_pub(group, fmt, ymin, subawebDir):
+def generate_selected_pub(group, fmt, ymin, subaweb_dir):
+    """Generates the list of selected publications"""
     entries = hal.getParsed(
         "collCode_s:{} docType_s:ART".format(group),
         "halId_s,authFullName_s,collaboration_s,title_s,arxivId_s,doiId_s,journalTitle_s,volume_s,number_s,page_s,producedDateY_i",
         ymin,
     )
 
-    selected = getSelected(entries, group)
+    selected = get_selected(entries, group)
 
-    formatter = getFormatter(fmt)
+    formatter = get_formatter(fmt)
 
     txt = formatter.header("ALICE publications", 2)
     txt += formatter.header(
@@ -306,35 +355,36 @@ def generate_selected_pub(group, fmt, ymin, subawebDir):
         2,
     )
 
-    txt += formatter.listStart()
-    selForSort = selected
+    txt += formatter.list_start()
+    sel_for_sort = selected
     for sel in selected:
         if not sel.get("arxivId_s"):
             sel["arxivId_s"] = "0"
 
     for entry in sorted(
-        selForSort,
+        sel_for_sort,
         key=lambda sel: (sel["producedDateY_i"], sel.get("arxivId_s")),
         reverse=True,
     ):
-        txt += formatter.listItem(
-            "{}, {}".format(entry["title_s"][0], getJournal(entry, formatter))
+        txt += formatter.list_item(
+            "{}, {}".format(entry["title_s"][0], get_journal(entry, formatter))
         )
-    txt += formatter.listEnd()
+    txt += formatter.list_end()
 
-    outFilename = getOutFilename(group, fmt, "publications", subawebDir)
-    dumpToFile(outFilename, "Publications", txt, fmt)
+    out_filename = get_out_filename(group, fmt, "publications", subaweb_dir)
+    dump_to_file(out_filename, "Publications", txt, fmt)
 
     return 0
 
 
-def readTheses(group):
-    scriptDir = os.path.dirname(os.path.realpath(__file__))
-    filename = os.path.join(scriptDir, "groups/{}/theses.yaml".format(group))
-    with open(filename) as inFile:
-        inEntries = yaml.safe_load(inFile.read())
+def read_theses(group):
+    """Read list of theses"""
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    filename = os.path.join(script_dir, f"groups/{group}/theses.yaml")
+    with open(filename, encoding="utf-8") as in_file:
+        in_entries = yaml.safe_load(in_file.read())
         entries = []
-        for en in inEntries:
+        for en in in_entries:
             entry = {}
             entry["title_s"] = [en["title"]]
             entry["authFirstName_s"] = [en["firstname"]]
@@ -349,26 +399,27 @@ def readTheses(group):
         return entries
 
 
-def generate_theses(group, fmt, subawebDir):
+def generate_theses(group, fmt, subaweb_dir):
+    """Generate list of theses"""
     entries = hal.getParsed(
         "collCode_s:{} docType_s:THESE".format(group),
         "halId_s,authFirstName_s,authLastName_s,title_s,defenseDate_s",
         2003,
     )
 
-    local = readTheses(group)
+    local = read_theses(group)
     ongoing = [entry for entry in local if not "defenseDate_s" in entry]
     done = [entry for entry in local if "defenseDate_s" in entry]
 
     entries += done
 
-    formatter = getFormatter(fmt)
+    formatter = get_formatter(fmt)
     txt = ""
 
     if ongoing:
         txt += formatter.header("En cours / In preparation", 2)
         for entry in ongoing:
-            txt += formatter.listItem(
+            txt += formatter.list_item(
                 "{}, {} {}".format(
                     entry["title_s"][0],
                     entry["authFirstName_s"][0],
@@ -378,29 +429,29 @@ def generate_theses(group, fmt, subawebDir):
 
     txt += formatter.header("Soutenues / Defended", 2)
 
-    txt += formatter.listStart()
+    txt += formatter.list_start()
     for entry in sorted(entries, key=lambda sel: sel["defenseDate_s"], reverse=True):
         url = entry.get("url")
         if not url:
-            id = entry.get("halId_s")
-            if id:
-                url = "https://theses.hal.science/" + id
+            entry_id = entry.get("halId_s")
+            if entry_id:
+                url = "https://theses.hal.science/" + entry_id
         title = entry["title_s"][0]
-        titleLink = title
+        title_link = title
         if url:
-            titleLink = formatter.link(url, title)
-        txt += formatter.listItem(
+            title_link = formatter.link(url, title)
+        txt += formatter.list_item(
             "{}, {} {}, defended {}".format(
-                titleLink,
+                title_link,
                 entry["authFirstName_s"][0],
                 entry["authLastName_s"][0].upper(),
                 entry["defenseDate_s"],
             )
         )
-    txt += formatter.listEnd()
+    txt += formatter.list_end()
 
-    outFilename = getOutFilename(group, fmt, "theses", subawebDir)
-    dumpToFile(outFilename, "Thèses / PhD", txt, fmt)
+    out_filename = get_out_filename(group, fmt, "theses", subaweb_dir)
+    dump_to_file(out_filename, "Thèses / PhD", txt, fmt)
 
     return 0
 
@@ -408,41 +459,41 @@ def generate_theses(group, fmt, subawebDir):
 # Conferences
 
 
-def formatContribution(conf, formatter):
-    # Generates the code for the contributions
+def format_contribution(conf, formatter):
+    """Generates the code for the contributions"""
     if "contributions" not in conf:
         return ""
     contributions = conf["contributions"]
 
     level = 2
-    out = formatter.listStart(level)
+    out = formatter.list_start(level)
     for contrib in contributions:
-        fmtContrib = ""
+        fmt_contrib = ""
         if contrib.get("invited") and contrib["invited"] is True:
-            fmtContrib += "Invited "
-        fmtContrib += contrib["type"]
-        contribDetails = ""
+            fmt_contrib += "Invited "
+        fmt_contrib += contrib["type"]
+        contrib_details = ""
         if contrib.get("title"):
-            contribDetails += formatter.it(contrib["title"]) + ","
+            contrib_details += formatter.text_it(contrib["title"]) + ","
         if contrib.get("firstname"):
-            contribDetails += (
+            contrib_details += (
                 " " + contrib["firstname"] + " " + contrib["lastname"].upper()
             )
         if contrib.get("nauthors") and contrib["nauthors"] > 1:
-            contribDetails += " et al."
-        if len(contribDetails) > 0:
-            fmtContrib += ": " + contribDetails
+            contrib_details += " et al."
+        if len(contrib_details) > 0:
+            fmt_contrib += ": " + contrib_details
         if contrib.get("proceedings"):
-            fmtContrib += ". Proceedings " + formatter.link(
+            fmt_contrib += ". Proceedings " + formatter.link(
                 contrib["proceedings"], "here"
             )
-        out += formatter.listItem(fmtContrib, level)
-    out += formatter.listEnd(level)
+        out += formatter.list_item(fmt_contrib, level)
+    out += formatter.list_end(level)
     return out
 
 
-def formatEvent(event, formatter):
-    # Generate the code for the event
+def format_event(event, formatter):
+    """Generate the code for the event"""
     out = ""
     url = event.get("url")
     name = event["conference"]
@@ -454,42 +505,47 @@ def formatEvent(event, formatter):
         out += name
 
     out += (
-        ", " + toDate(event["start"]).strftime("%d/%m/%y") + ", " + event["venue"] + "."
+        ", "
+        + to_date(event["start"]).strftime("%d/%m/%y")
+        + ", "
+        + event["venue"]
+        + "."
     )
     if event.get("type"):
         out += " " + event["type"] + "."
     if event.get("participants"):
         out += " " + str(event["participants"]) + " participants."
-    out += formatContribution(event, formatter).rstrip()
-    return formatter.listItem(out)
+    out += format_contribution(event, formatter).rstrip()
+    return formatter.list_item(out)
 
 
-def generate_conferences(group, fmt, subawebDir):
+def generate_conferences(group, fmt, subaweb_dir):
+    """Generate the conferences"""
     events = confHandler.getEvents(group)
-    eventsYear = {}
+    events_year = {}
     for evt in events:
-        year = toDate(evt["start"]).year
-        if not year in eventsYear:
-            eventsYear[year] = []
-        eventsYear[year].append(evt)
+        year = to_date(evt["start"]).year
+        if not year in events_year:
+            events_year[year] = []
+        events_year[year].append(evt)
 
-    formatter = getFormatter(fmt)
+    formatter = get_formatter(fmt)
     txt = ""
-    for year, mergedEvents in eventsYear.items():
+    for year, merged_events in events_year.items():
         txt += formatter.header(year, 2)
-        txt += formatter.listStart()
-        for event in mergedEvents:
-            txt += formatEvent(event, formatter)
-        txt += formatter.listEnd()
+        txt += formatter.list_start()
+        for event in merged_events:
+            txt += format_event(event, formatter)
+        txt += formatter.list_end()
 
-    lastYear = max(eventsYear.keys())
+    last_year = max(events_year.keys())
     title = (
         "Présentations à des Conférences/ Contribution to Conferences (2008-{})".format(
-            lastYear
+            last_year
         )
     )
-    outFilename = getOutFilename(group, fmt, "conferences", subawebDir)
-    dumpToFile(outFilename, title, txt, fmt)
+    out_filename = get_out_filename(group, fmt, "conferences", subaweb_dir)
+    dump_to_file(out_filename, title, txt, fmt)
 
     return 0
 
@@ -510,8 +566,8 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    rc = 0
-    rc += generate_selected_pub(args.group, args.format, args.ymin, args.subaweb)
-    rc += generate_theses(args.group, args.format, args.subaweb)
-    rc += generate_conferences(args.group, args.format, args.subaweb)
-    sys.exit(rc)
+    ret_code = 0
+    ret_code += generate_selected_pub(args.group, args.format, args.ymin, args.subaweb)
+    ret_code += generate_theses(args.group, args.format, args.subaweb)
+    ret_code += generate_conferences(args.group, args.format, args.subaweb)
+    sys.exit(ret_code)
