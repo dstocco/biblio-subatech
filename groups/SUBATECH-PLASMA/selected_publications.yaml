@@ -59,14 +59,17 @@
 "1910.14405": [irc] # Tarhini, Lardeux (not anymore in Subatech?)
 "1910.14405_title": "$\\Upsilon$ production in p-Pb collisions at $\\sqrt{s_{NN}}$=8.16 TeV"
 "2005.11126": [pc, irc] # Bugnon, Stocco
-"2101.02581": [irc] # Tarhini
+"10.1209/0295-5075/129/42001": [few_authors] # Bugnon
 "2011.05758": [pc] # Damas
 "2011.05758_title": "$\\Upsilon$ production and nuclear modification at forward rapidity in Pb-Pb collisions at sNN=5.02 TeV"
+"2101.02581": [irc] # Tarhini
 "2109.15240": [pc] # Damas
 "2204.10684": [pc] # Bugnon, Stocco
-"2204.10253": [pc] # Guittiere
+"2204.10253": [pc] # Guittiere, Guilbaud
 "2004.12673": [irc] # Stocco
 "2005.11128": [irc] # Tarhini
+"2209.04216": [pc] # Germain
 "2210.08893": [pc] # Garg
+"2210.08980": [irc] # Guilbaud
 "2211.13985": [irc] # Stocco
-"10.1209/0295-5075/129/42001": [few_authors] # Bugnon
+"2304.12403": [irc] # Pillot
