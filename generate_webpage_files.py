@@ -246,7 +246,7 @@ def get_selected(entries, group):
     tags = read_tagged_pub(group)
     filtered = []
     for entry in entries:
-        checks = [hal.getEprint(entry.get("arxivId_s")), entry.get("doiId_s")]
+        checks = [hal.get_eprint(entry.get("arxivId_s")), entry.get("doiId_s")]
         for val in checks:
             if val and val in tags:
                 sel = entry
@@ -303,7 +303,7 @@ def to_date(date_str):
 
 def generate_selected_pub(group, fmt, ymin, subaweb_dir):
     """Generates the list of selected publications"""
-    entries = hal.getParsed(
+    entries = hal.get_parsed(
         "collCode_s:{} docType_s:ART".format(group),
         "halId_s,authFullName_s,collaboration_s,title_s,arxivId_s,doiId_s,journalTitle_s,volume_s,number_s,page_s,producedDateY_i",
         ymin,
@@ -401,7 +401,7 @@ def read_theses(group):
 
 def generate_theses(group, fmt, subaweb_dir):
     """Generate list of theses"""
-    entries = hal.getParsed(
+    entries = hal.get_parsed(
         "collCode_s:{} docType_s:THESE".format(group),
         "halId_s,authFirstName_s,authLastName_s,title_s,defenseDate_s",
         2003,
@@ -521,7 +521,7 @@ def format_event(event, formatter):
 
 def generate_conferences(group, fmt, subaweb_dir):
     """Generate the conferences"""
-    events = confHandler.getEvents(group)
+    events = confHandler.get_events(group)
     events_year = {}
     for evt in events:
         year = to_date(evt["start"]).year
