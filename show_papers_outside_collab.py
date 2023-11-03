@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+
+"""
+Searches for papers for specified authors but outside any collaboration
+"""
+
 import sys
 import argparse
 import urllib.request
@@ -7,7 +12,7 @@ import json
 import hal
 
 
-def _updateMetadata(entries):
+def _update_metadata(entries):
     print("Collecting additional metadata from INSPIRE-HEP. This may take a while")
     for entry in entries:
         if entry.get("collaboration_s"):
@@ -30,12 +35,13 @@ def _updateMetadata(entries):
 
 
 def show_papers_outside_collab(group, ymin):
-    entries = hal.getParsed(
-        "collCode_s:{} docType_s:ART".format(group),
+    """Shows papers for specified authors but outside any collaboration"""
+    entries = hal.get_parsed(
+        f"collCode_s:{group} docType_s:ART",
         "halId_s,authFullName_s,collaboration_s,title_s,arxivId_s,doiId_s,producedDateY_i",
         ymin,
     )
-    _updateMetadata(entries)
+    _update_metadata(entries)
     papers = []
     for entry in entries:
         if "collaboration_s" in entry:
@@ -61,6 +67,6 @@ if __name__ == "__main__":
     parser.add_argument("--ymin", help="Minimum year", type=int, default=2007)
 
     args = parser.parse_args()
-    rc = show_papers_outside_collab(args.group, args.ymin)
+    RET_CODE = show_papers_outside_collab(args.group, args.ymin)
 
-    sys.exit(rc)
+    sys.exit(RET_CODE)
