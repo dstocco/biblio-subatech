@@ -152,15 +152,17 @@ def get_formatter(fmt):
     return HTMLFormatter()
 
 
-def get_page_header(title):
+def get_page_header_lines(title):
     """Returns the page header"""
-    out = "---\n"
-    out += f'title: "{title}"\n'
-    out += 'date: "2011-12-16 14:01:22 +0000 UTC"\n'
-    out += 'lastmod: "{} +0000 UTC"\n'.format(
-        datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-    )
-    out += "---\n\n"
+    out = [
+        "---\n",
+        f"title: {title}\n",
+        'date: "2011-12-16 14:01:22 +0000 UTC"\n',
+        'lastmod: "{} +0000 UTC"\n'.format(
+            datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+        ),
+        "---\n\n",
+    ]
     return out
 
 
@@ -201,27 +203,33 @@ def generate_test_page(in_filename, out_filename):
 def read_mdx(filename):
     """Read markdown for javascript"""
     if not os.path.exists(filename):
-        return [None, None]
+        return {}
     with open(filename, encoding="utf-8") as in_file:
         fcontent = in_file.readlines()
-        return ["".join(fcontent[0:6]), "".join(fcontent[6:])]
+        return {"header_lines": fcontent[0:6], "body_lines": fcontent[6:]}
 
 
 def dump_to_file(out_filename, title, txt, fmt):
     """Dump content to file"""
-    [header, body] = [None, None]
+    header_lines = []
     if fmt == "mdx":
-        [header, body] = read_mdx(out_filename)
-        if body:
+        mdx_dict = read_mdx(out_filename)
+        body_lines = mdx_dict.get("body_lines")
+        if body_lines:
+            body = "".join(body_lines)
             if body == txt:
                 print("No changes in " + out_filename)
                 return
-        if not header:
-            header = get_page_header(title)
+        header_lines = mdx_dict.get("header_lines")
+        header_update = get_page_header_lines(title)
+        if header_lines:
+            header_lines[1] = header_update[1]
+        else:
+            header_lines = header_update
     with open(out_filename, "w", encoding="utf-8") as out_file:
         print("Writing " + out_filename)
-        if header:
-            out_file.write(header)
+        if header_lines:
+            out_file.write("".join(header_lines))
         out_file.write(txt)
 
     if fmt == "html":
