@@ -161,7 +161,10 @@ def _get_hal_entries(group):
             event["url"] = urls[0]
         else:
             print("Missing url for " + entry["halId_s"])
-        audience = entry["audience_s"]
+        audience = entry.get("audience_s")
+        if not audience:
+            print("Missing audience for " + entry["halId_s"])
+            audience = "2"
         event["type"] = "{} {}".format(
             audience_map[audience], _get_meeting_type(event["conference"])
         )
@@ -180,7 +183,8 @@ def _get_hal_entries(group):
         contrib["type"] = contrib_type
         contrib["title"] = entry["title_s"][0]
         is_invited = False
-        if entry["invitedCommunication_s"] == "1":
+        invited_comm = entry.get("invitedCommunication_s")
+        if invited_comm and invited_comm == "1":
             is_invited = True
         contrib["invited"] = is_invited
         proc = entry.get("doiId_s")
