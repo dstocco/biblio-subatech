@@ -425,7 +425,7 @@ def generate_theses(group, fmt, subaweb_dir):
     txt = ""
 
     if ongoing:
-        txt += formatter.header("En cours / In preparation", 2)
+        txt += formatter.header("En cours / Ongoing", 2)
         for entry in ongoing:
             txt += formatter.list_item(
                 "{}, {} {}".format(
