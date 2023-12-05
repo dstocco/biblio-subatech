@@ -576,6 +576,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     ret_code = 0
     ret_code += generate_selected_pub(args.group, args.format, args.ymin, args.subaweb)
-    ret_code += generate_theses(args.group, args.format, args.subaweb)
-    ret_code += generate_conferences(args.group, args.format, args.subaweb)
+    if args.format == "html":
+        ret_code += generate_theses(args.group, args.format, args.subaweb)
+        ret_code += generate_conferences(args.group, args.format, args.subaweb)
     sys.exit(ret_code)
