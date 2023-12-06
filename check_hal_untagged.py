@@ -5,13 +5,42 @@
 import sys
 import re
 import os
+import urllib
 import argparse
 import yaml
 import hal
 
 
+def _extract_data_in_html_tag(html, tag, cl=None):
+    """Extract the data between html tags"""
+    reg_str = "<" + tag
+    if cl:
+        reg_str += f' class="{cl}"'
+    reg_str += ">(.*?)</" + tag + ">"
+    return re.findall(reg_str, html)
+
+
+def _get_members_from_ldap():
+    """Gets the Subatech memebers and their group from LDAP"""
+    print("Query member list from ldap")
+    with urllib.request.urlopen("https://annuaire.in2p3.fr/laboratory/11") as response:
+        html = response.read().decode()
+        authors = _extract_data_in_html_tag(html, "strong")
+        groups = _extract_data_in_html_tag(html, "td", "text-black-50")
+
+        members = {}
+        author_group = zip(authors, groups)
+        for author, grp in author_group:
+            group = "SUBATECH-" + grp
+            if group not in members:
+                members[group] = {}
+            members[group][author.lower()] = {"ymin": 2000, "ymax": 2100}
+        return members
+
+
 def _read_members():
     """Read the members of the groups"""
+    print("Read additional member information")
     script_dir = os.path.dirname(os.path.realpath(__file__))
     groups_dir = os.path.join(script_dir, "groups")
     groups = os.listdir(groups_dir)
@@ -90,8 +119,20 @@ def _matched_authors_and_groups(matched_authors, members_regex, entry):
 
 def check_hal_untagged(ymin, ymax):
     """Main function: check for entries in HAL that are tagged as SUBATECH but not tagged for a sub-group"""
+
+    # Load the members from ldap
+    members = _get_members_from_ldap()
+
     # Load the group members information
-    members = _read_members()
+    members_local = _read_members()
+
+    # Complete info in ldap
+    for group, info in members_local.items():
+        if group in members:
+            for author, data in info.items():
+                members[group][author] = data
+        else:
+            members[group] = info
 
     # Create a dictionary with author keys
     # and assign a list of groups and a regex to match the author in publication
@@ -126,14 +167,18 @@ def check_hal_untagged(ymin, ymax):
         # Build output
         matched = _matched_authors_and_groups(possible_matches, members_regex, entry)
 
-        info = {"id": entry["halId_s"], "title": entry["title_s"][0], "authors": []}
         if not matched:
             matched["UNKNOWN"] = []
         for group, authors in matched.items():
-            info["authors"] = authors
             if not group in untagged:
                 untagged[group] = []
-            untagged[group].append(info)
+            untagged[group].append(
+                {
+                    "id": entry["halId_s"],
+                    "title": entry["title_s"][0],
+                    "authors": authors,
+                }
+            )
 
     for group, info in sorted(untagged.items()):
         print(f"\nUntagged for {group}:")
