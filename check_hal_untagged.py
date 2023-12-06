@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """Check for entries in HAL that are tagged as SUBATECH but not tagged for a sub-group"""
 
@@ -21,7 +21,7 @@ def _extract_data_in_html_tag(html, tag, cl=None):
 
 
 def _get_members_from_ldap():
-    """Gets the Subatech memebers and their group from LDAP"""
+    """Gets the Subatech members and their group from LDAP"""
     print("Query member list from ldap")
     with urllib.request.urlopen("https://annuaire.in2p3.fr/laboratory/11") as response:
         html = response.read().decode()
@@ -39,7 +39,7 @@ def _get_members_from_ldap():
 
 
 def _read_members():
-    """Read the members of the groups"""
+    """Read the group members in local yaml files (if present)"""
     print("Read additional member information")
     script_dir = os.path.dirname(os.path.realpath(__file__))
     groups_dir = os.path.join(script_dir, "groups")
@@ -90,7 +90,7 @@ def _has_group_tag(entry):
 
 
 def _matched_authors(fmt_auth_inst_list, members_regex):
-    """Search for surname matching known subatech members in the lisit of authors"""
+    """Search for surname matching known subatech members in the list of authors"""
     matched = []
     for fmt_auth_inst in fmt_auth_inst_list:
         for author, info in members_regex.items():
@@ -115,6 +115,18 @@ def _matched_authors_and_groups(matched_authors, members_regex, entry):
                     matched[group] = []
                 matched[group].append(author)
     return matched
+
+
+def _print_summary(untagged):
+    for group, info in sorted(untagged.items()):
+        print(f"\nUntagged for {group}:")
+        for val in info:
+            out = val["id"]
+            if val["authors"]:
+                out += ": found authors {}  title: {}".format(
+                    ",".join(val["authors"]), val["title"]
+                )
+            print(out)
 
 
 def check_hal_untagged(ymin, ymax):
@@ -149,6 +161,10 @@ def check_hal_untagged(ymin, ymax):
     # Loop on entries
     untagged = {}
     for entry in sorted(entries, key=lambda item: item["halId_s"]):
+        # Do nothing if the entry has at least one tagged subatech group
+        # CAVEAT: there might be publications involving several
+        # groups that would not be matched in this way,
+        # But the number of fake positive is so large that it is better to neglect this case
         if _has_group_tag(entry):
             continue
 
@@ -164,7 +180,8 @@ def check_hal_untagged(ymin, ymax):
         # Search for known members of subatech groups in this entry
         possible_matches = _matched_authors(fmt_auth_inst_list, members_regex)
 
-        # Build output
+        # Further filter the list by matching with the years
+        # when the author was in a group (if provided)
         matched = _matched_authors_and_groups(possible_matches, members_regex, entry)
 
         if not matched:
@@ -179,17 +196,7 @@ def check_hal_untagged(ymin, ymax):
                     "authors": authors,
                 }
             )
-
-    for group, info in sorted(untagged.items()):
-        print(f"\nUntagged for {group}:")
-        for val in info:
-            out = val["id"]
-            if val["authors"]:
-                out += ": found authors {}  title: {}".format(
-                    ",".join(val["authors"]), val["title"]
-                )
-            print(out)
-
+    _print_summary(untagged)
     return 0
 
 
