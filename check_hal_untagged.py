@@ -117,16 +117,29 @@ def _matched_authors_and_groups(matched_authors, members_regex, entry):
     return matched
 
 
+def _get_doc_types(info):
+    doc_types = set()
+    for doc in info:
+        doc_types.add(doc["doc_type"])
+    return doc_types
+
+
 def _print_summary(untagged):
     for group, info in sorted(untagged.items()):
         print(f"\nUntagged for {group}:")
-        for val in info:
-            out = val["id"]
-            if val["authors"]:
-                out += ": found authors {}  title: {}".format(
-                    ",".join(val["authors"]), val["title"]
-                )
-            print(out)
+        doc_types = _get_doc_types(info)
+        for doc_type in sorted(doc_types):
+            per_doc = [doc for doc in info if doc["doc_type"] == doc_type]
+            if not per_doc:
+                continue
+            print("- doc_type: " + doc_type)
+            for doc in per_doc:
+                out = "  " + doc["id"]
+                out += '  title: "' + doc["title"] + '"'
+                authors = doc.get("authors")
+                if authors:
+                    out += ". Found authors: " + ",".join(authors)
+                print(out)
 
 
 def check_hal_untagged(ymin, ymax):
@@ -153,7 +166,7 @@ def check_hal_untagged(ymin, ymax):
     # Retrieve the bibliography from HAL
     entries = hal.get_parsed(
         "collCode_s:SUBATECH",
-        "halId_s,collCode_s,authFullName_s,title_s,authIdHasPrimaryStructure_fs,producedDateY_i",
+        "halId_s,collCode_s,authFullName_s,title_s,authIdHasPrimaryStructure_fs,producedDateY_i,docType_s",
         ymin,
         ymax,
     )
@@ -194,6 +207,7 @@ def check_hal_untagged(ymin, ymax):
                     "id": entry["halId_s"],
                     "title": entry["title_s"][0],
                     "authors": authors,
+                    "doc_type": entry["docType_s"],
                 }
             )
     _print_summary(untagged)
