@@ -7,6 +7,7 @@ import re
 import os
 import urllib
 import argparse
+import unicodedata
 import yaml
 import hal
 
@@ -89,35 +90,50 @@ def _has_group_tag(entry):
     return False
 
 
-def _matched_authors(fmt_auth_inst_list, members_regex):
-    """Search for surname matching known subatech members in the list of authors"""
-    matched = []
-    for fmt_auth_inst in fmt_auth_inst_list:
-        for author, info in members_regex.items():
-            if info["re"].search(fmt_auth_inst):
-                matched.append(author)
-    return matched
+def _remove_accents(input_str):
+    """Remove accents"""
+    return "".join(
+        c
+        for c in unicodedata.normalize("NFD", input_str)
+        if unicodedata.category(c) != "Mn"
+    )
 
 
-def _matched_authors_and_groups(matched_authors, members_regex, entry):
+def _find_groups(auth, members_regex, year):
+    """Find groups to which the author was affiliated at the time of publication"""
+    matched_groups = {}
+    norm_auth = _remove_accents(auth)
+    for info in members_regex.values():
+        if info["re"].search(norm_auth):
+            for group_info in info["groups"]:
+                if group_info["ymin"] <= year <= group_info["ymax"]:
+                    group = group_info["group"]
+                    if not group in matched_groups:
+                        matched_groups[group] = []
+                    matched_groups[group].append(auth)
+            break
+    if not matched_groups:
+        matched_groups["UNKNOWN"] = [auth]
+    return matched_groups
+
+
+def _group_authors(affiliated_authors, members_regex, year):
     """
-    Check if the author was really affiliated to a subatech group
-    in the year of the publication
+    Matches the the authors affiliated to subatech in HAL
+    with the known list of authors
     """
-    year = int(entry["producedDateY_i"])
-    matched = {}
-    for author in matched_authors:
-        info = members_regex.get(author)
-        for group_info in info["groups"]:
-            if group_info["ymin"] <= year <= group_info["ymax"]:
-                group = group_info["group"]
-                if not group in matched:
-                    matched[group] = []
-                matched[group].append(author)
-    return matched
+    grouped = {}
+    for auth in affiliated_authors:
+        matched_groups = _find_groups(auth, members_regex, year)
+        for group, authors in matched_groups.items():
+            if not group in grouped:
+                grouped[group] = []
+            grouped[group] += authors
+    return grouped
 
 
 def _get_doc_types(info):
+    """Returns the document type"""
     doc_types = set()
     for doc in info:
         doc_types.add(doc["doc_type"])
@@ -125,6 +141,7 @@ def _get_doc_types(info):
 
 
 def _print_summary(untagged):
+    """Prints a summary for the untagged entry"""
     for group, info in sorted(untagged.items()):
         print(f"\nUntagged for {group}:")
         doc_types = _get_doc_types(info)
@@ -140,6 +157,26 @@ def _print_summary(untagged):
                 if authors:
                     out += ". Found authors: " + ",".join(authors)
                 print(out)
+
+
+def _get_auth_inst(auth_struct):
+    """Extract the name and institute from the dedicated HAL field"""
+    f_sep = "_FacetSep_"
+    j_sep = "_JoinSep_"
+    name_start = auth_struct.find(f_sep) + len(f_sep)
+    name_end = auth_struct.find(j_sep)
+    lab_start = auth_struct.find(f_sep, name_start) + len(f_sep)
+    return {"author": auth_struct[name_start:name_end], "inst": auth_struct[lab_start:]}
+
+
+def _get_affiliated_authors(auth_struct_list, inst_list):
+    """Get the list of authors that are affiliated to one institute in the list in HAL"""
+    affiliated = []
+    for auth_struct in auth_struct_list:
+        auth_inst = _get_auth_inst(auth_struct)
+        if auth_inst["inst"] in inst_list:
+            affiliated.append(auth_inst["author"])
+    return affiliated
 
 
 def check_hal_untagged(ymin, ymax):
@@ -182,24 +219,20 @@ def check_hal_untagged(ymin, ymax):
             continue
 
         # Extract the list of authors affiliated with subatech
-        fmt_auth_inst_list = [
-            re.sub(r"_JoinSep_[0-9]+_FacetSep_", " ", auth_inst)
-            for auth_inst in entry["authIdHasPrimaryStructure_fs"]
-            if "SUBATECH" in auth_inst
-            or "Laboratoire de physique subatomique et des technologies associées"
-            in auth_inst
-        ]
+        affiliated_authors = _get_affiliated_authors(
+            entry["authIdHasPrimaryStructure_fs"],
+            [
+                "Laboratoire SUBATECH Nantes",
+                "Laboratoire de physique subatomique et des technologies associées",
+            ],
+        )
 
-        # Search for known members of subatech groups in this entry
-        possible_matches = _matched_authors(fmt_auth_inst_list, members_regex)
+        year = int(entry["producedDateY_i"])
 
-        # Further filter the list by matching with the years
-        # when the author was in a group (if provided)
-        matched = _matched_authors_and_groups(possible_matches, members_regex, entry)
+        # Split authors in groups
+        grouped = _group_authors(affiliated_authors, members_regex, year)
 
-        if not matched:
-            matched["UNKNOWN"] = []
-        for group, authors in matched.items():
+        for group, authors in grouped.items():
             if not group in untagged:
                 untagged[group] = []
             untagged[group].append(
