@@ -426,6 +426,7 @@ def generate_theses(group, fmt, subaweb_dir):
 
     if ongoing:
         txt += formatter.header("En cours / Ongoing", 2)
+        txt += formatter.list_start()
         for entry in ongoing:
             txt += formatter.list_item(
                 "{}, {} {}".format(
@@ -434,6 +435,7 @@ def generate_theses(group, fmt, subaweb_dir):
                     entry["authLastName_s"][0].upper(),
                 )
             )
+        txt += formatter.list_end()
 
     txt += formatter.header("Soutenues / Defended", 2)
 
