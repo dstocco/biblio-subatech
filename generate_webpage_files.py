@@ -154,28 +154,27 @@ def get_formatter(fmt):
 
 def get_page_header_lines(title):
     """Returns the page header"""
+    current_time = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M:%S")
     out = [
         "---\n",
         f"title: {title}\n",
         'date: "2011-12-16 14:01:22 +0000 UTC"\n',
-        'lastmod: "{} +0000 UTC"\n'.format(
-            datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-        ),
+        f'lastmod: "{current_time} +0000 UTC"\n',
         "---\n\n",
     ]
     return out
 
 
-def get_out_filename(group, fmt, name, subaweb_dir):
+def get_out_filename(group, fmt, name, subaweb_dir, lang):
     """Returns the output filename"""
     grp = group.lower().replace("subatech-", "")
     if fmt == "html":
-        return f"{grp}_{name}.html"
+        return f"{grp}_{name}_{lang}.html"
 
     out_dir = os.path.join(subaweb_dir, "content/recherche/equipes", grp)
     if name == "conferences":
         name = "presentations-de-conferences-seminaires-et-posters"
-    name += ".xx.mdx"
+    name += f".{lang}.mdx"
     out_filename = os.path.join(out_dir, name)
     if os.path.exists(out_filename):
         return out_filename
@@ -242,9 +241,7 @@ def dump_to_file(out_filename, title, txt, fmt):
 def read_tagged_pub(group):
     """Read file with selected publications"""
     script_dir = os.path.dirname(os.path.realpath(__file__))
-    filename = os.path.join(
-        script_dir, "groups/{}/selected_publications.yaml".format(group)
-    )
+    filename = os.path.join(script_dir, f"groups/{group}/selected_publications.yaml")
     with open(filename, encoding="utf-8") as in_file:
         return yaml.safe_load(in_file.read())
 
@@ -283,7 +280,7 @@ def get_journal(entry, formatter):
         volume = entry.get("volume_s")
         if volume:
             journal += " " + volume
-        journal += " ({})".format(entry["producedDateY_i"])
+        journal += f" ({entry['producedDateY_i']})"
         pages = entry.get("page_s")
         if pages:
             journal += " " + pages
@@ -310,9 +307,9 @@ def to_date(date_str):
 
 
 def generate_selected_pub(group, fmt, ymin, subaweb_dir):
-    """Generates the list of selected publications"""
+    """Generates the list of selected publications in the chosen language"""
     entries = hal.get_parsed(
-        "collCode_s:{} docType_s:ART".format(group),
+        f"collCode_s:{group} docType_s:ART",
         "halId_s,authFullName_s,collaboration_s,title_s,arxivId_s,doiId_s,journalTitle_s,volume_s,number_s,page_s,producedDateY_i",
         ymin,
     )
@@ -321,66 +318,82 @@ def generate_selected_pub(group, fmt, ymin, subaweb_dir):
 
     formatter = get_formatter(fmt)
 
-    txt = formatter.header("ALICE publications", 2)
-    txt += formatter.header(
-        formatter.link(
-            "http://aliceinfo.cern.ch/ArtSubmission/publications", "ALICE web page"
-        ),
-        3,
-    )
-    txt += formatter.header(
-        formatter.link(
-            "https://inspirehep.net/literature?sort=mostrecent&size=250&page=1&q=fin%20cn%20alice%20and%20a%20batigne%20and%20a%20germain%20and%20tc%20p%20not%20tc%20c",
-            "INSPIRE-HEP",
-        ),
-        3,
-    )
-    txt += formatter.header(
-        formatter.link(
-            "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=fin%20cn%20star%20and%20%28a%20Erazmus%20or%20a%20kabana%29%20and%20tc%20p%20not%20tc%20c",
-            "STAR publications on INSPIRE-HEP",
-        ),
-        2,
-    )
-    txt += formatter.header(
-        formatter.link(
-            "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=fin%20a%20Aphecetche%20and%20cn%20phenix%20and%20tc%20p%20not%20tc%20c",
-            "PHENIX publications on INSPIRE-HEP",
-        ),
-        2,
-    )
-    txt += formatter.header(
-        formatter.link(
-            "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=fin%20a%20schutz%20and%20cn%20wa98%20and%20tc%20p%20not%20tc%20c",
-            "WA98 publications on INSPIRE-HEP",
-        ),
-        2,
-    )
-    txt += formatter.header(
-        "Sélection des publications et autres publications / Selection of publications and other standalone publications ({}-{})".format(
-            ymin, datetime.datetime.today().year
-        ),
-        2,
-    )
+    langs = {"en": 0, "fr": 1}
+    h1 = ["ALICE publications", "Publications d'ALICE"]
+    h2 = ["ALICE web page", "Page web d'ALICE"]
+    star = ["STAR publications on INSPIRE-HEP", "Publications de STAR sur INSPIRE-HEP"]
+    phenix = [
+        "PHENIX publications on INSPIRE-HEP",
+        "Publications de PHENIX sur INSPIRE-HEP",
+    ]
+    wa98 = [
+        "WA98 publications on INSPIRE-HEP",
+        "Publications de WA98 sur INSPIRE-HEP",
+    ]
+    selection = [
+        "Selection of publications and other standalone publications",
+        "Sélection des publications et autres publications",
+    ]
 
-    txt += formatter.list_start()
-    sel_for_sort = selected
-    for sel in selected:
-        if not sel.get("arxivId_s"):
-            sel["arxivId_s"] = "0"
-
-    for entry in sorted(
-        sel_for_sort,
-        key=lambda sel: (sel["producedDateY_i"], sel.get("arxivId_s")),
-        reverse=True,
-    ):
-        txt += formatter.list_item(
-            "{}, {}".format(entry["title_s"][0], get_journal(entry, formatter))
+    for key, idx in langs.items():
+        txt = formatter.header(h1[idx], 2)
+        txt += formatter.header(
+            formatter.link(
+                "http://aliceinfo.cern.ch/ArtSubmission/publications", h2[idx]
+            ),
+            3,
         )
-    txt += formatter.list_end()
+        txt += formatter.header(
+            formatter.link(
+                "https://inspirehep.net/literature?sort=mostrecent&size=250&page=1&q=fin%20cn%20alice%20and%20a%20batigne%20and%20a%20germain%20and%20tc%20p%20not%20tc%20c",
+                "INSPIRE-HEP",
+            ),
+            3,
+        )
+        txt += formatter.header(
+            formatter.link(
+                "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=fin%20cn%20star%20and%20%28a%20Erazmus%20or%20a%20kabana%29%20and%20tc%20p%20not%20tc%20c",
+                star[idx],
+            ),
+            2,
+        )
+        txt += formatter.header(
+            formatter.link(
+                "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=fin%20a%20Aphecetche%20and%20cn%20phenix%20and%20tc%20p%20not%20tc%20c",
+                phenix[idx],
+            ),
+            2,
+        )
+        txt += formatter.header(
+            formatter.link(
+                "https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=fin%20a%20schutz%20and%20cn%20wa98%20and%20tc%20p%20not%20tc%20c",
+                wa98[idx],
+            ),
+            2,
+        )
+        txt += formatter.header(
+            f"{selection[idx]} ({ymin}-{datetime.datetime.today().year})",
+            2,
+        )
 
-    out_filename = get_out_filename(group, fmt, "publications", subaweb_dir)
-    dump_to_file(out_filename, "Publications", txt, fmt)
+        txt += formatter.list_start()
+        sel_for_sort = selected
+        for sel in selected:
+            if not sel.get("arxivId_s"):
+                sel["arxivId_s"] = "0"
+
+        for entry in sorted(
+            sel_for_sort,
+            key=lambda sel: (sel["producedDateY_i"], sel.get("arxivId_s")),
+            reverse=True,
+        ):
+            txt += formatter.list_item(
+                f"{entry['title_s'][0]}, {get_journal(entry, formatter)}"
+            )
+        txt += formatter.list_end()
+
+        out_filename = get_out_filename(group, fmt, "publications", subaweb_dir, key)
+        dump_to_file(out_filename, "Publications", txt, fmt)
 
     return 0
 
@@ -410,7 +423,7 @@ def read_theses(group):
 def generate_theses(group, fmt, subaweb_dir):
     """Generate list of theses"""
     entries = hal.get_parsed(
-        "collCode_s:{} docType_s:THESE".format(group),
+        f"collCode_s:{group} docType_s:THESE",
         "halId_s,authFirstName_s,authLastName_s,title_s,defenseDate_s",
         2003,
     )
@@ -422,46 +435,45 @@ def generate_theses(group, fmt, subaweb_dir):
     entries += done
 
     formatter = get_formatter(fmt)
-    txt = ""
 
-    if ongoing:
-        txt += formatter.header("En cours / Ongoing", 2)
-        txt += formatter.list_start()
-        for entry in ongoing:
-            txt += formatter.list_item(
-                "{}, {} {}".format(
-                    entry["title_s"][0],
-                    entry["authFirstName_s"][0],
-                    entry["authLastName_s"][0].upper(),
+    langs = {"en": 0, "fr": 1}
+    ong = ["Ongoing", "En cours"]
+    defended = ["Defended", "Soutenues"]
+    title = ["PhD", "Thèses"]
+
+    for key, idx in langs.items():
+        txt = ""
+        if ongoing:
+            txt += formatter.header(ong[idx], 2)
+            txt += formatter.list_start()
+            for entry in ongoing:
+                txt += formatter.list_item(
+                    f"{entry['title_s'][0]}, {entry['authFirstName_s'][0]} {entry['authLastName_s'][0].upper()}"
                 )
+            txt += formatter.list_end()
+
+        txt += formatter.header(defended[idx], 2)
+
+        txt += formatter.list_start()
+        for entry in sorted(
+            entries, key=lambda sel: sel["defenseDate_s"], reverse=True
+        ):
+            url = entry.get("url")
+            if not url:
+                entry_id = entry.get("halId_s")
+                if entry_id:
+                    url = "https://theses.hal.science/" + entry_id
+            title = entry["title_s"][0]
+            title_link = title
+            if url:
+                title_link = formatter.link(url, title)
+            txt += formatter.list_item(
+                f"{title_link}, {entry['authFirstName_s'][0]} {entry['authLastName_s'][0].upper()}, defended {entry['defenseDate_s']}"
             )
         txt += formatter.list_end()
 
-    txt += formatter.header("Soutenues / Defended", 2)
-
-    txt += formatter.list_start()
-    for entry in sorted(entries, key=lambda sel: sel["defenseDate_s"], reverse=True):
-        url = entry.get("url")
-        if not url:
-            entry_id = entry.get("halId_s")
-            if entry_id:
-                url = "https://theses.hal.science/" + entry_id
-        title = entry["title_s"][0]
-        title_link = title
-        if url:
-            title_link = formatter.link(url, title)
-        txt += formatter.list_item(
-            "{}, {} {}, defended {}".format(
-                title_link,
-                entry["authFirstName_s"][0],
-                entry["authLastName_s"][0].upper(),
-                entry["defenseDate_s"],
-            )
-        )
-    txt += formatter.list_end()
-
-    out_filename = get_out_filename(group, fmt, "theses", subaweb_dir)
-    dump_to_file(out_filename, "Thèses / PhD", txt, fmt)
+        out_filename = get_out_filename(group, fmt, "theses", subaweb_dir, key)
+        dump_to_file(out_filename, title[idx], txt, fmt)
 
     return 0
 
@@ -540,22 +552,22 @@ def generate_conferences(group, fmt, subaweb_dir):
         events_year[year].append(evt)
 
     formatter = get_formatter(fmt)
-    txt = ""
-    for year, merged_events in events_year.items():
-        txt += formatter.header(year, 2)
-        txt += formatter.list_start()
-        for event in merged_events:
-            txt += format_event(event, formatter)
-        txt += formatter.list_end()
+    langs = {"en": 0, "fr": 1}
+    titles = ["Contribution to conferences", "Présentations à des Conférences"]
 
-    last_year = max(events_year.keys())
-    title = (
-        "Présentations à des Conférences/ Contribution to Conferences (2008-{})".format(
-            last_year
-        )
-    )
-    out_filename = get_out_filename(group, fmt, "conferences", subaweb_dir)
-    dump_to_file(out_filename, title, txt, fmt)
+    for key, idx in langs.items():
+        txt = ""
+        for year, merged_events in events_year.items():
+            txt += formatter.header(year, 2)
+            txt += formatter.list_start()
+            for event in merged_events:
+                txt += format_event(event, formatter)
+            txt += formatter.list_end()
+
+        last_year = max(events_year.keys())
+        title = f"{titles[idx]} (2008-{last_year})"
+        out_filename = get_out_filename(group, fmt, "conferences", subaweb_dir, key)
+        dump_to_file(out_filename, title, txt, fmt)
 
     return 0
 
