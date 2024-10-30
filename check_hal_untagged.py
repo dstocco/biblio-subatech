@@ -4,11 +4,9 @@
 
 import sys
 import re
-import os
 import urllib
 import argparse
 import unicodedata
-import yaml
 import hal
 
 
@@ -39,30 +37,6 @@ def _get_members_from_ldap() -> dict:
         return members
 
 
-def _read_members() -> dict:
-    """Read the group members in local yaml files (if present)"""
-    print("Read additional member information")
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    groups_dir = os.path.join(script_dir, "groups")
-    groups = os.listdir(groups_dir)
-    members: dict = {}
-    for group in groups:
-        filename = os.path.join(groups_dir, group, "members.yaml")
-        if os.path.exists(filename):
-            with open(filename, encoding="utf-8") as in_file:
-                gm = yaml.safe_load(in_file)
-                members[group] = {}
-                for author, info in gm.items():
-                    auth_info = {"ymin": 2000, "ymax": 2100}
-                    if info:
-                        if "ymin" in info:
-                            auth_info["ymin"] = info["ymin"]
-                        if "ymax" in info:
-                            auth_info["ymax"] = info["ymax"]
-                    members[group][author] = auth_info
-    return members
-
-
 def _get_members_dict(members: dict) -> dict:
     """
     Reorganize member information: use author surname as key and store:
@@ -84,22 +58,10 @@ def _get_members_dict(members: dict) -> dict:
 
 def _get_members_info() -> dict:
     """
-    Returns the members information by merging the information
-    from ldap and the local database
+    Returns the members information from ldap
     """
     # Load the members from ldap
     members = _get_members_from_ldap()
-
-    # Load the group members information
-    members_local = _read_members()
-
-    # Complete info in ldap
-    for group, info in members_local.items():
-        if group in members:
-            for author, data in info.items():
-                members[group][author] = data
-        else:
-            members[group] = info
 
     # Create a dictionary with author keys
     # and assign a list of groups and a regex to match the author in publication
