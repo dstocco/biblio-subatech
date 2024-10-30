@@ -13,6 +13,23 @@ python3 check_hal_untagged.py
 The script retrieves the name of Subatech members and their group from ldap, and uses this information to sort the many contributions.
 The matching is of course not perfect, but it allows a first sorting of publication per group.
 
+## show_stats.py
+
+This script shows the number of publications of the selected Subatech group separated by categories and per production year.
+
+```shell
+python3 show_stats.py
+```
+
+## show_papers_outside_collab.py
+
+This script shows the publications of the selected Subatech group that do not belong to a collaboration.
+This is helpful to highlight either review papers or publications with few authors.
+
+```shell
+python3 show_papers_outside_collab.py
+```
+
 ## generate_webpage_files.py
 
 This script combines information from HAL and local information in order to generate the list of selected publications and conference contributions of the group for the Subatech webpage.
@@ -21,6 +38,12 @@ Usage:
 
 ```shell
 python3 generate_webpage_files.py
+```
+
+Notice that the script reads some local information written in yaml. Since the yaml parser is not part of the standard python distribution, it has to be installed with:
+
+```shell
+pip3 install --user PyYAML
 ```
 
 ### Selected publications
@@ -58,20 +81,3 @@ The fixes or addition of some information for the webpage, can be added in the s
 ### Additional theses information
 
 The information of the ongoing theses or of the theses that are not in the HAL archive can be specified in the file: `groups/<group>/theses.yaml`.
-
-## show_stats.py
-
-This script shows the number of publications of the selected Subatech group separated by categories and per production year.
-
-```shell
-python3 show_stats.py
-```
-
-## show_papers_outside_collab.py
-
-This script shows the publications of the selected Subatech group that do not belong to a collaboration.
-This is helpful to highlight either review papers or publications with few authors.
-
-```shell
-python3 show_papers_outside_collab.py
-```
